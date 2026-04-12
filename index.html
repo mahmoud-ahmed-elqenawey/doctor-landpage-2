@@ -6,7 +6,7 @@
     <title>Aburub Dental Clinic | د. محمد طارق أبوالرُب</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -22,9 +22,9 @@
                         cream: { 50: '#fdfcfa', 100: '#f9f6f0', 200: '#f0ebe0' }
                     },
                     fontFamily: {
-                        display: ['Playfair Display', 'Noto Naskh Arabic', 'serif'],
+                        display: ['Tajawal', 'sans-serif'],
                         body: ['Tajawal', 'sans-serif'],
-                        arabic: ['Noto Naskh Arabic', 'serif']
+                        arabic: ['Tajawal', 'sans-serif']
                     }
                 }
             }
@@ -45,8 +45,8 @@
         @keyframes glowPulse { 0%, 100% { filter: drop-shadow(0 0 8px rgba(23,174,182,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(23,174,182,0.6)); } }
 
         /* Buttons */
-        .btn-teal { background: linear-gradient(135deg, #f2cd00, #d4b300, #f7e066, #f2cd00); background-size: 200% 200%; animation: shimmer 3s ease-in-out infinite; transition: all 0.3s ease; }
-        .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(242,205,0,0.4); }
+        .btn-teal { background: linear-gradient(135deg, #17aeb6, #0d7070, #17aeb6, #0d7070); background-size: 200% 200%; animation: shimmer 3s ease-in-out infinite; transition: all 0.3s ease; }
+        .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(23,174,182,0.4); }
         .btn-teal-pulse { animation: pulse-teal 2s ease-in-out infinite; }
 
         /* Lines & cards */
@@ -142,21 +142,22 @@
 <!-- ============================================ -->
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900"></div>
+        <img src="hero-bg.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center">
+        <div class="absolute inset-0 bg-gradient-to-l from-navy-900/95 via-navy-900/80 to-navy-900/50"></div>
+        <div class="absolute inset-0 bg-navy-900/40"></div>
         <div class="hero-blob-1 absolute top-0 left-0 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-[120px]"></div>
         <div class="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-400/3 rounded-full blur-[100px]"></div>
-        <div class="hero-grid absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(23,174,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(23,174,182,1) 1px, transparent 1px); background-size: 60px 60px;"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="text-center lg:text-right">
-                <div class="hero-badge inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-5 py-2 mb-8 opacity-0">
+                <div class="hero-badge inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-5 py-2 mb-8">
                     <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
                     <span class="text-teal-300 text-sm font-medium">نستقبل حجوزاتكم الآن</span>
                 </div>
-                <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 opacity-0">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300">تستاهل الأفضل</span></h1>
-                <p class="hero-subtitle text-lg sm:text-xl text-cream-200/60 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0 mb-10 opacity-0">مش بس هنعالج أسنانك — هنغير نظرتك لنفسك.<br>خبرة سنين، تقنيات حديثة، ونتائج تتكلم عن نفسها.</p>
-                <div class="hero-cta flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start opacity-0">
+                <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300">تستاهل الأفضل</span></h1>
+                <p class="hero-subtitle text-lg sm:text-xl text-cream-200/60 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0 mb-10">مش بس هنعالج أسنانك — هنغير نظرتك لنفسك.<br>خبرة سنين، تقنيات حديثة، ونتائج تتكلم عن نفسها.</p>
+                <div class="hero-cta flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                     <a href="#booking" class="btn-teal btn-teal-pulse px-10 py-4 rounded-full text-navy-900 font-bold text-lg w-full sm:w-auto text-center">احجز موعدك المجاني<span class="block text-xs font-normal opacity-70 mt-0.5">هنتواصل معاك خلال ساعة</span></a>
                     <a href="#services" class="flex items-center gap-2 text-cream-200/60 hover:text-teal-400 transition-colors group">
                         <span class="w-12 h-12 rounded-full border border-cream-200/20 flex items-center justify-center group-hover:border-teal-400/50 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
@@ -164,12 +165,12 @@
                     </a>
                 </div>
             </div>
-            <div class="relative hero-image hidden lg:block opacity-0">
+            <div class="relative hero-image hidden lg:block">
                 <div class="relative w-full aspect-square max-w-lg mx-auto">
                     <div class="absolute inset-0 rounded-full border border-teal-400/10" style="animation: borderGlow 4s ease-in-out infinite;"></div>
                     <div class="absolute inset-4 rounded-full border border-teal-400/5"></div>
-                    <div class="absolute inset-8 rounded-full bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden flex items-center justify-center">
-                        <div class="text-center"><svg class="w-24 h-24 text-teal-400/20 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg><p class="text-teal-400/30 text-sm">صورة الدكتور</p></div>
+                    <div class="absolute inset-8 rounded-full bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden">
+                        <img src="doctor.jpg" alt="د. محمد طارق أبوالرُب" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="hero-float-card-1 absolute -bottom-2 right-10 bg-navy-800 border border-teal-400/20 rounded-2xl px-5 py-3 shadow-2xl" style="animation: float 4s ease-in-out infinite;">
                         <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-teal-400/10 flex items-center justify-center"><svg class="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><div><p class="text-teal-300 font-bold text-lg">+2000</p><p class="text-cream-200/40 text-xs">حالة ناجحة</p></div></div>
@@ -180,7 +181,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero-stats mt-16 lg:mt-24 opacity-0">
+        <div class="hero-stats mt-16 lg:mt-24">
             <div class="teal-line mb-8"></div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div><p class="text-3xl sm:text-4xl font-bold text-teal-400 font-display stat-number" data-count="15">0</p><p class="text-cream-200/40 text-sm mt-1">سنة خبرة</p></div>
@@ -258,8 +259,8 @@
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div class="doctor-image">
                 <div class="relative">
-                    <div class="aspect-[3/4] rounded-3xl bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden border border-teal-400/10 flex items-center justify-center">
-                        <div class="text-center p-8"><svg class="w-32 h-32 text-teal-400/15 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><p class="text-teal-400/30 text-sm">صورة الدكتور</p></div>
+                    <div class="aspect-[3/4] rounded-3xl bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden border border-teal-400/10">
+                        <img src="doctor.jpg" alt="د. محمد طارق أبوالرُب" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="doctor-exp absolute -bottom-6 -left-6 sm:left-auto sm:-right-6 bg-teal-500 text-navy-900 rounded-2xl p-6 shadow-2xl">
                         <p class="text-4xl font-bold font-display">+15</p>
@@ -310,13 +311,13 @@
             <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">مش إحنا اللي بنقول — <span class="text-teal-400">هم اللي بيقولوا</span></h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"كنت خايفة جداً من زراعة الأسنان. الدكتور طمّني من أول جلسة ومحسيتش بأي ألم. النتيجة فوق الخيال!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">س.م</span></div><div><p class="text-cream-100 font-bold">سارة محمد</p><p class="text-cream-200/40 text-sm">زراعة أسنان</p></div></div></div>
-            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"عملت هوليود سمايل والنتيجة طبيعية جداً. الدكتور فنان بمعنى الكلمة. أحلى فلوس صرفتها في حياتي!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">أ.ع</span></div><div><p class="text-cream-100 font-bold">أحمد عبدالله</p><p class="text-cream-200/40 text-sm">Hollywood Smile</p></div></div></div>
-            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span><span class="star-item text-teal-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"بنتي كانت خايفة من دكتور الأسنان. دلوقتي هي اللي بتطلب تروح العيادة! شكراً من القلب."</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">م.ح</span></div><div><p class="text-cream-100 font-bold">مريم حسين</p><p class="text-cream-200/40 text-sm">أسنان أطفال</p></div></div></div>
+            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"كنت خايفة جداً من زراعة الأسنان. الدكتور طمّني من أول جلسة ومحسيتش بأي ألم. النتيجة فوق الخيال!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">س.م</span></div><div><p class="text-cream-100 font-bold">سارة محمد</p><p class="text-cream-200/40 text-sm">زراعة أسنان</p></div></div></div>
+            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"عملت هوليود سمايل والنتيجة طبيعية جداً. الدكتور فنان بمعنى الكلمة. أحلى فلوس صرفتها في حياتي!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">أ.ع</span></div><div><p class="text-cream-100 font-bold">أحمد عبدالله</p><p class="text-cream-200/40 text-sm">Hollywood Smile</p></div></div></div>
+            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"بنتي كانت خايفة من دكتور الأسنان. دلوقتي هي اللي بتطلب تروح العيادة! شكراً من القلب."</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">م.ح</span></div><div><p class="text-cream-100 font-bold">مريم حسين</p><p class="text-cream-200/40 text-sm">أسنان أطفال</p></div></div></div>
         </div>
         <div class="mt-12 text-center testimonials-rating">
             <div class="inline-flex items-center gap-3 bg-navy-900/50 border border-teal-400/10 rounded-full px-8 py-4">
-                <span class="text-teal-400 text-xl">★★★★★</span>
+                <span class="text-gold-400 text-xl">★★★★★</span>
                 <div class="w-px h-8 bg-teal-400/20"></div>
                 <div class="text-right"><p class="text-cream-100 font-bold">4.9 / 5</p><p class="text-cream-200/40 text-xs">من +200 تقييم على Google</p></div>
             </div>
@@ -454,6 +455,7 @@
 <!-- ============================================ -->
 <script>
 gsap.registerPlugin(ScrollTrigger);
+window.addEventListener('load', function() {
 
 // ========== HEADER ==========
 const header = document.getElementById('header');
@@ -469,46 +471,22 @@ mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => 
 
 // ========== SECTION 1: HERO — Parallax + Stagger + Counter ==========
 (() => {
-    const tl = gsap.timeline({ delay: 0.3 });
+    const heroEls = ['.hero-badge', '.hero-title', '.hero-subtitle', '.hero-cta', '.hero-image', '.hero-stats'];
+    heroEls.forEach(sel => { const el = document.querySelector(sel); if(el) el.style.opacity = '0'; });
 
-    // Badge drops in with bounce
-    tl.to('.hero-badge', {
-        opacity: 1, y: 0, duration: 0.8,
-        ease: 'back.out(1.7)'
-    })
-    // Title sweeps in
-    .to('.hero-title', {
-        opacity: 1, y: 0, duration: 1,
-        ease: 'power4.out'
-    }, '-=0.4')
-    // Subtitle fades
-    .to('.hero-subtitle', {
-        opacity: 1, y: 0, duration: 0.8,
-        ease: 'power3.out'
-    }, '-=0.5')
-    // CTA slides up
-    .to('.hero-cta', {
-        opacity: 1, y: 0, duration: 0.8,
-        ease: 'power3.out'
-    }, '-=0.4')
-    // Image scales in
-    .to('.hero-image', {
-        opacity: 1, scale: 1, duration: 1.2,
-        ease: 'power3.out'
-    }, '-=0.8')
-    // Stats bar
-    .to('.hero-stats', {
-        opacity: 1, y: 0, duration: 0.8,
-        ease: 'power3.out'
-    }, '-=0.6');
+    const delays = [0.3, 0.5, 0.7, 0.9, 0.5, 1.1];
+    const yVals  = [-30, 50, 30, 30, 0, 40];
 
-    // Set initial states
-    gsap.set('.hero-badge', { opacity: 0, y: -30 });
-    gsap.set('.hero-title', { opacity: 0, y: 50 });
-    gsap.set('.hero-subtitle', { opacity: 0, y: 30 });
-    gsap.set('.hero-cta', { opacity: 0, y: 30 });
-    gsap.set('.hero-image', { opacity: 0, scale: 0.8 });
-    gsap.set('.hero-stats', { opacity: 0, y: 40 });
+    heroEls.forEach((sel, i) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        setTimeout(() => {
+            el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0) scale(1)';
+        }, delays[i] * 1000);
+        el.style.transform = `translateY(${yVals[i]}px)${sel === '.hero-image' ? ' scale(0.8)' : ''}`;
+    });
 
     // Parallax blobs on scroll
     gsap.to('.hero-blob-1', {
@@ -968,6 +946,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         }
     });
 });
+}); // end window load
 </script>
 
 </body>
