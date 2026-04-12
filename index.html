@@ -17,7 +17,8 @@
                 extend: {
                     colors: {
                         navy: { 900: '#0a1628', 800: '#111f3b', 700: '#1a2d4e', 600: '#243b61' },
-                        teal: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' },
+                        teal: { 50: '#e6f5f5', 100: '#b3e0e0', 200: '#80cccc', 300: '#17aeb6', 400: '#17aeb6', 500: '#0d7070', 600: '#0d7070', 700: '#0a5a5a' },
+                        gold: { 300: '#f7e066', 400: '#f2cd00', 500: '#d4b300', 600: '#b89c00' },
                         cream: { 50: '#fdfcfa', 100: '#f9f6f0', 200: '#f0ebe0' }
                     },
                     fontFamily: {
@@ -36,24 +37,24 @@
 
         /* Base keyframes */
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-        @keyframes pulse-teal { 0%, 100% { box-shadow: 0 0 0 0 rgba(45,212,191,0.4); } 50% { box-shadow: 0 0 0 16px rgba(45,212,191,0); } }
+        @keyframes pulse-teal { 0%, 100% { box-shadow: 0 0 0 0 rgba(23,174,182,0.4); } 50% { box-shadow: 0 0 0 16px rgba(23,174,182,0); } }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        @keyframes borderGlow { 0%, 100% { border-color: rgba(45,212,191,0.2); } 50% { border-color: rgba(45,212,191,0.6); } }
+        @keyframes borderGlow { 0%, 100% { border-color: rgba(23,174,182,0.2); } 50% { border-color: rgba(23,174,182,0.6); } }
         @keyframes rotateStar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes dashDraw { to { stroke-dashoffset: 0; } }
-        @keyframes glowPulse { 0%, 100% { filter: drop-shadow(0 0 8px rgba(45,212,191,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(45,212,191,0.6)); } }
+        @keyframes glowPulse { 0%, 100% { filter: drop-shadow(0 0 8px rgba(23,174,182,0.3)); } 50% { filter: drop-shadow(0 0 20px rgba(23,174,182,0.6)); } }
 
         /* Buttons */
-        .btn-teal { background: linear-gradient(135deg, #2dd4bf, #14b8a6, #5eead4, #14b8a6); background-size: 200% 200%; animation: shimmer 3s ease-in-out infinite; transition: all 0.3s ease; }
-        .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(45,212,191,0.4); }
+        .btn-teal { background: linear-gradient(135deg, #f2cd00, #d4b300, #f7e066, #f2cd00); background-size: 200% 200%; animation: shimmer 3s ease-in-out infinite; transition: all 0.3s ease; }
+        .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(242,205,0,0.4); }
         .btn-teal-pulse { animation: pulse-teal 2s ease-in-out infinite; }
 
         /* Lines & cards */
-        .teal-line { height: 1px; background: linear-gradient(to left, transparent, #14b8a6, transparent); }
-        .service-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(45,212,191,0.1); }
-        .service-card:hover { transform: translateY(-8px) scale(1.02); border-color: rgba(45,212,191,0.4); box-shadow: 0 20px 60px rgba(10,22,40,0.3); }
-        .testimonial-card { border: 1px solid rgba(45,212,191,0.1); transition: all 0.4s ease; }
-        .testimonial-card:hover { border-color: rgba(45,212,191,0.3); transform: translateY(-4px); }
+        .teal-line { height: 1px; background: linear-gradient(to left, transparent, #17aeb6, transparent); }
+        .service-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(23,174,182,0.1); }
+        .service-card:hover { transform: translateY(-8px) scale(1.02); border-color: rgba(23,174,182,0.4); box-shadow: 0 20px 60px rgba(10,22,40,0.3); }
+        .testimonial-card { border: 1px solid rgba(23,174,182,0.1); transition: all 0.4s ease; }
+        .testimonial-card:hover { border-color: rgba(23,174,182,0.3); transform: translateY(-4px); }
 
         /* Header */
         .header-scrolled { background: rgba(10,22,40,0.95) !important; backdrop-filter: blur(20px); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
@@ -61,12 +62,12 @@
         /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0a1628; }
-        ::-webkit-scrollbar-thumb { background: #14b8a6; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { background: #17aeb6; border-radius: 3px; }
 
         /* WhatsApp */
         .whatsapp-float { animation: float 3s ease-in-out infinite; box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
         .stat-number { font-variant-numeric: tabular-nums; }
-        .form-input:focus { border-color: #14b8a6; box-shadow: 0 0 0 3px rgba(20,184,166,0.15); }
+        .form-input:focus { border-color: #17aeb6; box-shadow: 0 0 0 3px rgba(23,174,182,0.15); }
 
         /* Section reveal helpers */
         .section-hidden { visibility: hidden; }
@@ -85,7 +86,7 @@
 
         /* Glow effect */
         .glow-card { position: relative; overflow: hidden; }
-        .glow-card::before { content: ''; position: absolute; inset: -50%; background: conic-gradient(from 0deg, transparent, rgba(45,212,191,0.1), transparent, rgba(45,212,191,0.1), transparent); animation: rotateStar 8s linear infinite; opacity: 0; transition: opacity 0.5s; }
+        .glow-card::before { content: ''; position: absolute; inset: -50%; background: conic-gradient(from 0deg, transparent, rgba(23,174,182,0.1), transparent, rgba(23,174,182,0.1), transparent); animation: rotateStar 8s linear infinite; opacity: 0; transition: opacity 0.5s; }
         .glow-card:hover::before { opacity: 1; }
 
         /* Journey line */
@@ -109,7 +110,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <a href="#" class="flex items-center gap-3">
-                <img src="logo.png" alt="Aburub Dental Clinic" class="h-12 w-auto">
+                <img src="logo.svg" alt="Aburub Dental Clinic" class="h-12 w-auto">
             </a>
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-cream-200/70">
                 <a href="#services" class="hover:text-teal-400 transition-colors nav-link">خدماتنا</a>
@@ -144,7 +145,7 @@
         <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900"></div>
         <div class="hero-blob-1 absolute top-0 left-0 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-[120px]"></div>
         <div class="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-400/3 rounded-full blur-[100px]"></div>
-        <div class="hero-grid absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(45,212,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,191,1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+        <div class="hero-grid absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(23,174,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(23,174,182,1) 1px, transparent 1px); background-size: 60px 60px;"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -337,7 +338,7 @@
             <!-- Animated connecting line (desktop) -->
             <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-[2px]" style="z-index: -1;">
                 <div class="journey-line-bg absolute inset-0 bg-teal-400/10 rounded-full"></div>
-                <div class="journey-line-fill absolute inset-y-0 right-0 w-0 rounded-full" style="background: linear-gradient(270deg, #2dd4bf, #14b8a6, #5eead4);"></div>
+                <div class="journey-line-fill absolute inset-y-0 right-0 w-0 rounded-full" style="background: linear-gradient(270deg, #17aeb6, #0d7070, #17aeb6);"></div>
                 <div class="journey-dot absolute top-1/2 -translate-y-1/2 translate-x-1/2 right-0 w-3 h-3 rounded-full bg-teal-400" style="opacity: 0;"></div>
             </div>
 
@@ -432,7 +433,7 @@
 <footer id="contact" class="relative py-16 bg-navy-900 border-t border-teal-400/10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-3 gap-12 mb-12">
-            <div class="footer-col"><div class="flex items-center gap-3 mb-6"><img src="logo.png" alt="Aburub Dental Clinic" class="h-12 w-auto brightness-0 invert"></div><p class="text-cream-200/40 leading-relaxed text-sm">عيادة أسنان متكاملة — خبرة سنين ونتائج تتكلم عن نفسها. ابتسامتك أمانة في إيدينا.</p></div>
+            <div class="footer-col"><div class="flex items-center gap-3 mb-6"><img src="logo.svg" alt="Aburub Dental Clinic" class="h-12 w-auto brightness-0 invert"></div><p class="text-cream-200/40 leading-relaxed text-sm">عيادة أسنان متكاملة — خبرة سنين ونتائج تتكلم عن نفسها. ابتسامتك أمانة في إيدينا.</p></div>
             <div class="footer-col"><h3 class="text-cream-100 font-bold mb-6">تواصل معانا</h3><div class="space-y-4"><a href="tel:+201XXXXXXXXX" class="flex items-center gap-3 text-cream-200/50 hover:text-teal-400 transition-colors group"><div class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center group-hover:border-teal-400/30 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><span class="text-sm" dir="ltr">01X XXXX XXXX</span></a><a href="#" class="flex items-center gap-3 text-cream-200/50 hover:text-teal-400 transition-colors group"><div class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center group-hover:border-teal-400/30 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><span class="text-sm">[عنوان العيادة]</span></a></div></div>
             <div class="footer-col"><h3 class="text-cream-100 font-bold mb-6">مواعيد العمل</h3><div class="space-y-3 text-sm"><div class="flex justify-between text-cream-200/50"><span>السبت - الخميس</span><span dir="ltr">10:00 AM - 10:00 PM</span></div><div class="flex justify-between text-cream-200/50"><span>الجمعة</span><span dir="ltr">2:00 PM - 10:00 PM</span></div><div class="teal-line my-4"></div><p class="text-teal-400/60 text-xs">🚨 متاح حالات الطوارئ على مدار الساعة</p></div><div class="flex items-center gap-3 mt-6"><a href="#" class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center hover:border-teal-400/30 transition-colors text-cream-200/40 hover:text-teal-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="#" class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center hover:border-teal-400/30 transition-colors text-cream-200/40 hover:text-teal-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="#" class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center hover:border-teal-400/30 transition-colors text-cream-200/40 hover:text-teal-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.4a6.37 6.37 0 00-.79-.05A6.28 6.28 0 003.2 15.22a6.28 6.28 0 006.28 6.28 6.28 6.28 0 006.29-6.28V8.69a8.22 8.22 0 004.82 1.56v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a></div></div>
         </div>
@@ -807,8 +808,8 @@ mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => 
             const icon = step.querySelector('.step-icon');
             if (icon) {
                 journeyTl.fromTo(icon,
-                    { boxShadow: '0 0 0 0 rgba(45,212,191,0)' },
-                    { boxShadow: '0 0 20px 4px rgba(45,212,191,0.3)', duration: 0.4, ease: 'power2.out' },
+                    { boxShadow: '0 0 0 0 rgba(23,174,182,0)' },
+                    { boxShadow: '0 0 20px 4px rgba(23,174,182,0.3)', duration: 0.4, ease: 'power2.out' },
                     '-=0.4'
                 );
             }
@@ -826,8 +827,8 @@ mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => 
             const stepDot = step.querySelector('.step-dot');
             if (stepDot) {
                 journeyTl.fromTo(stepDot,
-                    { scale: 0, backgroundColor: 'rgba(45,212,191,0.4)' },
-                    { scale: 1.5, backgroundColor: 'rgba(45,212,191,1)', duration: 0.3, ease: 'back.out(2)' },
+                    { scale: 0, backgroundColor: 'rgba(23,174,182,0.4)' },
+                    { scale: 1.5, backgroundColor: 'rgba(23,174,182,1)', duration: 0.3, ease: 'back.out(2)' },
                     '-=0.5'
                 );
             }
