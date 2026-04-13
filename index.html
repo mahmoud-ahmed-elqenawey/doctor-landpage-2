@@ -34,8 +34,189 @@
     </script>
     <style>
         * { scroll-behavior: smooth; }
-        body { font-family: 'Tajawal', sans-serif; overflow-x: hidden; }
+        body { font-family: 'Tajawal', sans-serif; overflow-x: hidden; transition: background-color 0.4s, color 0.4s; }
         .grain::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); }
+
+        /* ===== LIGHT MODE OVERRIDES ===== */
+        body.light-mode { background: #f5f7fa !important; color: #1a202c !important; }
+        body.light-mode .grain::after { opacity: 0; }
+
+        /* Header */
+        body.light-mode .header-scrolled { background: rgba(255,255,255,0.95) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important; }
+        body.light-mode #header nav a { color: #4a5568; }
+        body.light-mode #header nav a:hover { color: #0d7070; }
+        body.light-mode #mobile-menu-btn { color: #1a202c; }
+        body.light-mode #mobile-menu { background: rgba(255,255,255,0.97); border-color: #e2e8f0; }
+        body.light-mode #mobile-menu a { color: #4a5568; }
+
+        /* Hero overlay */
+        body.light-mode #hero .bg-gradient-to-l { background: linear-gradient(to left, rgba(245,247,250,0.95), rgba(245,247,250,0.80), rgba(245,247,250,0.50)) !important; }
+        body.light-mode #hero .bg-navy-900\/40 { background: rgba(245,247,250,0.40) !important; }
+        body.light-mode .hero-badge { background: rgba(13,112,112,0.08) !important; border-color: rgba(13,112,112,0.2) !important; }
+        body.light-mode .hero-badge span:last-child { color: #0d7070 !important; }
+        body.light-mode .hero-title { color: #1a202c !important; }
+        body.light-mode .hero-title span { background: linear-gradient(to left, #0d7070, #17aeb6, #0d7070) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; }
+        body.light-mode .hero-subtitle { color: #4a5568 !important; }
+        body.light-mode .hero-cta a:not(.btn-teal) { color: #4a5568; }
+
+        /* Hero floating cards */
+        body.light-mode .hero-float-card-1,
+        body.light-mode .hero-float-card-2 { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important; }
+        body.light-mode .hero-float-card-1 p:first-child,
+        body.light-mode .hero-float-card-2 p:first-child { color: #0d7070 !important; }
+        body.light-mode .hero-float-card-1 p:last-child,
+        body.light-mode .hero-float-card-2 p:last-child { color: #718096 !important; }
+
+        /* Stats */
+        body.light-mode .hero-stats .stat-number { color: #0d7070 !important; }
+        body.light-mode .hero-stats p:not(.stat-number) { color: #718096 !important; }
+
+        /* Sections backgrounds */
+        body.light-mode #why-us { background: #edf2f7 !important; }
+        body.light-mode #why-us .bg-gradient-to-b { background: linear-gradient(to bottom, #f5f7fa, transparent, #f5f7fa) !important; }
+        body.light-mode #doctor { background: #edf2f7 !important; }
+        body.light-mode #testimonials { background: #edf2f7 !important; }
+        body.light-mode #pricing { background: #edf2f7 !important; }
+
+        /* Cards */
+        body.light-mode .why-card,
+        body.light-mode .service-card,
+        body.light-mode .testimonial-card { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
+        body.light-mode .service-card:hover,
+        body.light-mode .why-card:hover { border-color: rgba(13,112,112,0.3) !important; box-shadow: 0 12px 40px rgba(0,0,0,0.1) !important; }
+        body.light-mode .testimonial-card:hover { border-color: rgba(13,112,112,0.3) !important; }
+
+        /* Card text */
+        body.light-mode .why-card h3,
+        body.light-mode .service-card h3 { color: #1a202c !important; }
+        body.light-mode .why-card p,
+        body.light-mode .service-card p { color: #718096 !important; }
+        body.light-mode .testimonial-card p { color: #4a5568 !important; }
+        body.light-mode .testimonial-card .text-cream-100 { color: #1a202c !important; }
+        body.light-mode .testimonial-card .text-cream-200\/40 { color: #a0aec0 !important; }
+
+        /* ALL text overrides */
+        body.light-mode h2, body.light-mode h3 { color: #1a202c !important; }
+        body.light-mode h2 .text-teal-400, body.light-mode h3.text-teal-300 { color: #0d7070 !important; }
+        body.light-mode .text-teal-300 { color: #0d7070 !important; }
+        body.light-mode .text-teal-400 { color: #0d7070 !important; }
+        body.light-mode [class*="text-cream-200/5"], body.light-mode [class*="text-cream-200\/5"] { color: #718096 !important; }
+        body.light-mode [class*="text-cream-200/4"], body.light-mode [class*="text-cream-200\/4"] { color: #a0aec0 !important; }
+        body.light-mode [class*="text-cream-200/6"], body.light-mode [class*="text-cream-200\/6"] { color: #4a5568 !important; }
+        body.light-mode [class*="text-cream-200/7"], body.light-mode [class*="text-cream-200\/7"] { color: #4a5568 !important; }
+        body.light-mode [class*="text-cream-200/8"], body.light-mode [class*="text-cream-200\/8"] { color: #2d3748 !important; }
+        body.light-mode [class*="text-cream-200/3"], body.light-mode [class*="text-cream-200\/3"] { color: #a0aec0 !important; }
+        body.light-mode [class*="text-cream-200/2"], body.light-mode [class*="text-cream-200\/2"] { color: #a0aec0 !important; }
+        body.light-mode .text-cream-50 { color: #1a202c !important; }
+        body.light-mode .text-cream-100 { color: #1a202c !important; }
+        body.light-mode [class*="text-teal-400/6"], body.light-mode [class*="text-teal-400\/6"] { color: #0d7070 !important; }
+        body.light-mode [class*="text-teal-400/3"], body.light-mode [class*="text-teal-400\/3"] { color: #0d7070 !important; }
+        body.light-mode .text-navy-900 { color: #1a202c !important; }
+
+        /* Doctor section */
+        body.light-mode .doctor-image .aspect-\[3\/4\] { border-color: #e2e8f0 !important; }
+        body.light-mode .doctor-image img { border-radius: 1.5rem; }
+        body.light-mode .doctor-credential { background: #f7fafc !important; border-color: #e2e8f0 !important; }
+        body.light-mode .doctor-credential p:first-child { color: #1a202c !important; }
+        body.light-mode .doctor-credential p:last-child { color: #a0aec0 !important; }
+        body.light-mode .doctor-quote { background: #f7fafc !important; border-color: #17aeb6 !important; }
+        body.light-mode .doctor-quote p { color: #4a5568 !important; }
+
+        /* Results */
+        body.light-mode .result-card { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
+        body.light-mode .result-card [class*="bg-navy"] { background: #edf2f7 !important; }
+        body.light-mode .result-card [class*="bg-gradient"] { background: linear-gradient(to bottom right, #e2e8f0, #edf2f7) !important; }
+        body.light-mode .result-card .text-cream-100 { color: #1a202c !important; }
+        body.light-mode .result-card [class*="text-cream-200"] { color: #718096 !important; }
+
+        /* Journey */
+        body.light-mode .step-icon { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        body.light-mode .journey-step h3 { color: #1a202c !important; }
+        body.light-mode .journey-step p { color: #a0aec0 !important; }
+
+        /* Pricing */
+        body.light-mode .pricing-card { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
+        body.light-mode .pricing-card p:nth-child(2) { color: #1a202c !important; }
+        body.light-mode .pricing-card p:last-child { color: #a0aec0 !important; }
+
+        /* Booking */
+        body.light-mode .booking-form { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 8px 30px rgba(0,0,0,0.06) !important; }
+        body.light-mode .form-input { background: #f7fafc !important; border-color: #e2e8f0 !important; color: #1a202c !important; }
+        body.light-mode .form-input::placeholder { color: #cbd5e0 }
+        body.light-mode .booking-header h2 { color: #1a202c !important; }
+        body.light-mode .booking-header p { color: #718096 !important; }
+        body.light-mode label { color: #4a5568 !important; }
+        body.light-mode .booking-glow { opacity: 0.3 !important; }
+
+        /* Footer */
+        body.light-mode #contact { background: #1a202c !important; color: #e2e8f0 !important; border-color: rgba(23,174,182,0.1) !important; }
+
+        /* Testimonials rating */
+        body.light-mode .testimonials-rating > div { background: white !important; border-color: #e2e8f0 !important; }
+        body.light-mode .testimonials-rating .text-cream-100 { color: #1a202c !important; }
+
+        /* Social proof */
+        body.light-mode #social-proof { background: rgba(255,255,255,0.97) !important; border-color: #e2e8f0 !important; }
+        body.light-mode #social-proof .text-cream-100 { color: #1a202c !important; }
+        body.light-mode #social-proof .text-cream-200\/40 { color: #a0aec0 !important; }
+
+        /* Scrollbar */
+        body.light-mode::-webkit-scrollbar-track { background: #f5f7fa; }
+
+        /* Teal line */
+        body.light-mode .teal-line { background: linear-gradient(to left, transparent, #17aeb6, transparent); opacity: 0.3; }
+
+        /* General navy backgrounds override */
+        body.light-mode [class*="bg-navy-900/6"],
+        body.light-mode [class*="bg-navy-900\/6"] { background: #f7fafc !important; }
+        body.light-mode [class*="bg-navy-900/5"],
+        body.light-mode [class*="bg-navy-900\/5"] { background: #f7fafc !important; }
+        body.light-mode [class*="bg-navy-900/4"],
+        body.light-mode [class*="bg-navy-900\/4"] { background: #f7fafc !important; }
+        body.light-mode [class*="bg-navy-800/5"],
+        body.light-mode [class*="bg-navy-800\/5"] { background: white !important; }
+        body.light-mode [class*="bg-navy-800/3"],
+        body.light-mode [class*="bg-navy-800\/3"] { background: #edf2f7 !important; }
+
+        /* All borders with teal opacity */
+        body.light-mode [class*="border-teal-400/1"],
+        body.light-mode [class*="border-teal-400\/1"] { border-color: #e2e8f0 !important; }
+        body.light-mode [class*="border-teal-400/0"],
+        body.light-mode [class*="border-teal-400\/0"] { border-color: #e2e8f0 !important; }
+        body.light-mode [class*="border-teal-400/2"],
+        body.light-mode [class*="border-teal-400\/2"] { border-color: #d1dce5 !important; }
+
+        /* Icon backgrounds */
+        body.light-mode [class*="bg-teal-400/10"],
+        body.light-mode [class*="bg-teal-400\/1"] { background: rgba(13,112,112,0.08) !important; }
+        body.light-mode [class*="bg-green-500/10"],
+        body.light-mode [class*="bg-green-500\/1"] { background: rgba(72,187,120,0.1) !important; }
+        body.light-mode [class*="bg-red-500/10"],
+        body.light-mode [class*="bg-red-500\/1"] { background: rgba(245,101,101,0.1) !important; }
+
+        /* Gradient icon boxes */
+        body.light-mode [class*="from-teal-400/20"] { background: rgba(13,112,112,0.06) !important; }
+
+        /* Booking form fields */
+        body.light-mode select.form-input { color: #4a5568 !important; }
+        body.light-mode .booking-urgency .bg-red-500\/10 { background: rgba(245,101,101,0.08) !important; }
+        body.light-mode .booking-urgency .border-red-500\/20 { border-color: rgba(245,101,101,0.2) !important; }
+        body.light-mode .booking-urgency .text-red-300 { color: #e53e3e !important; }
+        body.light-mode .form-field [class*="text-cream-200/3"] { color: #a0aec0 !important; }
+
+        /* CTA card in services */
+        body.light-mode .service-card[class*="from-teal-400"] { background: linear-gradient(to bottom right, rgba(13,112,112,0.06), rgba(13,112,112,0.02)) !important; }
+
+        /* Hero circle borders */
+        body.light-mode [class*="border-teal-400/5"] { border-color: #e2e8f0 !important; }
+
+        /* Theme toggle */
+        .theme-toggle { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(23,174,182,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; background: transparent; }
+        .theme-toggle:hover { border-color: rgba(23,174,182,0.5); background: rgba(23,174,182,0.05); }
+        .theme-toggle svg { transition: transform 0.4s ease; }
+        body.light-mode .theme-toggle { border-color: #e2e8f0; }
+        body.light-mode .theme-toggle:hover { background: #f7fafc; }
+        body.light-mode .theme-toggle svg { color: #1a202c; }
 
         /* Base keyframes */
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
@@ -122,7 +303,13 @@
                 <a href="#journey" class="hover:text-teal-400 transition-colors nav-link">رحلتك معانا</a>
                 <a href="#contact" class="hover:text-teal-400 transition-colors nav-link">تواصل</a>
             </nav>
-            <a href="#booking" class="btn-teal px-6 py-2.5 rounded-full text-navy-900 font-bold text-sm hidden sm:inline-block">احجز موعدك الآن</a>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع">
+                    <svg class="sun-icon w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke-width="2"/></svg>
+                    <svg class="moon-icon w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <a href="#booking" class="btn-teal px-6 py-2.5 rounded-full text-navy-900 font-bold text-sm hidden sm:inline-block">احجز موعدك الآن</a>
+            </div>
             <button id="mobile-menu-btn" class="lg:hidden text-cream-100">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
@@ -520,6 +707,41 @@ const menuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+// ========== THEME TOGGLE ==========
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = themeToggle.querySelector('.sun-icon');
+const moonIcon = themeToggle.querySelector('.moon-icon');
+const savedTheme = localStorage.getItem('theme');
+
+function setTheme(mode) {
+    if (mode === 'light') {
+        document.body.classList.add('light-mode');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+        moonIcon.style.transform = 'rotate(0deg)';
+    } else {
+        document.body.classList.remove('light-mode');
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
+        sunIcon.style.transform = 'rotate(0deg)';
+    }
+    localStorage.setItem('theme', mode);
+}
+
+// Apply saved theme
+if (savedTheme === 'light') {
+    setTheme('light');
+} else {
+    // Show sun icon (means: click to switch to light)
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+}
+
+themeToggle.addEventListener('click', () => {
+    const isLight = document.body.classList.contains('light-mode');
+    setTheme(isLight ? 'dark' : 'light');
+});
 
 // ========== SECTION 1: HERO — Parallax + Stagger + Counter ==========
 (() => {
