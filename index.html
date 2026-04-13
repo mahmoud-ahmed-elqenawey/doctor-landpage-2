@@ -50,26 +50,35 @@
         body.light-mode #mobile-menu a { color: #4a5568; }
 
         /* Hero overlay */
-        body.light-mode #hero .bg-gradient-to-l { background: linear-gradient(to left, rgba(245,247,250,0.95), rgba(245,247,250,0.80), rgba(245,247,250,0.50)) !important; }
-        body.light-mode #hero .bg-navy-900\/40 { background: rgba(245,247,250,0.40) !important; }
+        body.light-mode #hero .bg-gradient-to-l { background: linear-gradient(to left, rgba(255,255,255,0.97), rgba(255,255,255,0.85), rgba(255,255,255,0.55)) !important; }
+        body.light-mode #hero .bg-navy-900\/40 { background: rgba(255,255,255,0.30) !important; }
         body.light-mode .hero-badge { background: rgba(13,112,112,0.08) !important; border-color: rgba(13,112,112,0.2) !important; }
+        body.light-mode .hero-badge .animate-pulse { background: #0d7070 !important; }
         body.light-mode .hero-badge span:last-child { color: #0d7070 !important; }
         body.light-mode .hero-title { color: #1a202c !important; }
-        body.light-mode .hero-title span { background: linear-gradient(to left, #0d7070, #17aeb6, #0d7070) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; }
+        body.light-mode .hero-title span { -webkit-text-fill-color: #0d7070 !important; color: #0d7070 !important; background: none !important; }
         body.light-mode .hero-subtitle { color: #4a5568 !important; }
-        body.light-mode .hero-cta a:not(.btn-teal) { color: #4a5568; }
+        body.light-mode .hero-cta a:not(.btn-teal) { color: #2d3748 !important; }
+        body.light-mode .hero-cta a:not(.btn-teal) span:first-child { border-color: #cbd5e0 !important; color: #0d7070 !important; }
+        body.light-mode .hero-cta a:not(.btn-teal):hover { color: #0d7070 !important; }
+
+        /* Hero logo circle */
+        body.light-mode .hero-image [class*="from-navy-700"] { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 8px 40px rgba(0,0,0,0.06); }
+        body.light-mode .hero-image [class*="border-teal-400"] { border-color: rgba(13,112,112,0.15) !important; }
 
         /* Hero floating cards */
         body.light-mode .hero-float-card-1,
         body.light-mode .hero-float-card-2 { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important; }
-        body.light-mode .hero-float-card-1 p:first-child,
-        body.light-mode .hero-float-card-2 p:first-child { color: #0d7070 !important; }
+        body.light-mode .hero-float-card-1 p,
+        body.light-mode .hero-float-card-2 p { color: #0d7070 !important; }
         body.light-mode .hero-float-card-1 p:last-child,
         body.light-mode .hero-float-card-2 p:last-child { color: #718096 !important; }
+        body.light-mode .hero-float-card-2 div p:first-child { color: #0d7070 !important; }
 
         /* Stats */
         body.light-mode .hero-stats .stat-number { color: #0d7070 !important; }
         body.light-mode .hero-stats p:not(.stat-number) { color: #718096 !important; }
+        body.light-mode .hero-stats .teal-line { opacity: 0.5; }
 
         /* Sections backgrounds */
         body.light-mode #why-us { background: #edf2f7 !important; }
@@ -114,13 +123,27 @@
         body.light-mode .text-navy-900 { color: #1a202c !important; }
 
         /* Doctor section */
-        body.light-mode .doctor-image .aspect-\[3\/4\] { border-color: #e2e8f0 !important; }
+        body.light-mode .doctor-image .aspect-\[3\/4\] { border-color: #e2e8f0 !important; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
         body.light-mode .doctor-image img { border-radius: 1.5rem; }
-        body.light-mode .doctor-credential { background: #f7fafc !important; border-color: #e2e8f0 !important; }
+        body.light-mode .doctor-image [class*="from-teal-500"] { box-shadow: 0 4px 15px rgba(13,112,112,0.2); }
+        body.light-mode .doctor-exp { box-shadow: 0 8px 30px rgba(13,112,112,0.2) !important; }
+        body.light-mode .doctor-text span { color: #0d7070 !important; }
+        body.light-mode .doctor-text > h2 { color: #1a202c !important; }
+        body.light-mode .doctor-text > p { color: #4a5568 !important; }
+        body.light-mode .doctor-credential { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
         body.light-mode .doctor-credential p:first-child { color: #1a202c !important; }
-        body.light-mode .doctor-credential p:last-child { color: #a0aec0 !important; }
-        body.light-mode .doctor-quote { background: #f7fafc !important; border-color: #17aeb6 !important; }
+        body.light-mode .doctor-credential p:last-child { color: #718096 !important; }
+        body.light-mode .doctor-quote { background: white !important; border-color: #17aeb6 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
         body.light-mode .doctor-quote p { color: #4a5568 !important; }
+        body.light-mode .doctor-quote cite { color: #0d7070 !important; }
+
+        /* Why-us card details */
+        body.light-mode .why-card .teal-line { opacity: 0.2; }
+        body.light-mode .why-card .text-teal-300 { color: #0d7070 !important; }
+
+        /* Testimonial details */
+        body.light-mode .testimonial-item .font-arabic { color: #4a5568 !important; }
+        body.light-mode .testimonial-item .text-teal-400 { color: #0d7070 !important; }
 
         /* Results */
         body.light-mode .result-card { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
@@ -209,6 +232,17 @@
 
         /* Hero circle borders */
         body.light-mode [class*="border-teal-400/5"] { border-color: #e2e8f0 !important; }
+
+        /* FINAL: Dark-bg elements must have white text (highest priority) */
+        body.light-mode .btn-teal,
+        body.light-mode .btn-teal *,
+        body.light-mode .btn-teal span,
+        body.light-mode a.btn-teal,
+        body.light-mode button.btn-teal { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+        body.light-mode .step-badge { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+        body.light-mode .doctor-exp,
+        body.light-mode .doctor-exp * { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+        body.light-mode .bg-teal-500 { color: #fff !important; }
 
         /* Theme toggle */
         .theme-toggle { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(23,174,182,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; background: transparent; }
@@ -300,7 +334,7 @@
                 <a href="#doctor" class="hover:text-teal-400 transition-colors nav-link">الطبيب</a>
                 <a href="#results" class="hover:text-teal-400 transition-colors nav-link">النتائج</a>
                 <a href="#testimonials" class="hover:text-teal-400 transition-colors nav-link">آراء المرضى</a>
-                <a href="#journey" class="hover:text-teal-400 transition-colors nav-link">رحلتك معانا</a>
+                <a href="#journey" class="hover:text-teal-400 transition-colors nav-link">رحلتك معنا</a>
                 <a href="#contact" class="hover:text-teal-400 transition-colors nav-link">تواصل</a>
             </nav>
             <div class="flex items-center gap-3">
@@ -344,13 +378,13 @@
                     <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
                     <span class="text-teal-300 text-sm font-medium">نستقبل حجوزاتكم الآن</span>
                 </div>
-                <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300">تستاهل الأفضل</span></h1>
-                <p class="hero-subtitle text-lg sm:text-xl text-cream-200/60 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0 mb-10">مش بس هنعالج أسنانك — هنغير نظرتك لنفسك.<br>خبرة سنين، تقنيات حديثة، ونتائج تتكلم عن نفسها.</p>
+                <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300">تستحق الأفضل</span></h1>
+                <p class="hero-subtitle text-lg sm:text-xl text-cream-200/60 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0 mb-10">لن نعالج أسنانك فحسب — بل سنغيّر نظرتك لنفسك.<br>خبرة سنوات، تقنيات حديثة، ونتائج تتحدث عن نفسها.</p>
                 <div class="hero-cta flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                    <a href="#booking" class="btn-teal btn-teal-pulse px-10 py-4 rounded-full text-navy-900 font-bold text-lg w-full sm:w-auto text-center">احجز موعدك المجاني<span class="block text-xs font-normal opacity-70 mt-0.5">هنتواصل معاك خلال ساعة</span></a>
+                    <a href="#booking" class="btn-teal btn-teal-pulse px-10 py-4 rounded-full text-navy-900 font-bold text-lg w-full sm:w-auto text-center">احجز موعدك المجاني<span class="block text-xs font-normal opacity-70 mt-0.5">سنتواصل معك خلال ساعة</span></a>
                     <a href="#services" class="flex items-center gap-2 text-cream-200/60 hover:text-teal-400 transition-colors group">
                         <span class="w-12 h-12 rounded-full border border-cream-200/20 flex items-center justify-center group-hover:border-teal-400/50 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-                        <span class="text-sm font-medium">اعرف أكتر</span>
+                        <span class="text-sm font-medium">اعرف المزيد</span>
                     </a>
                 </div>
             </div>
@@ -358,8 +392,8 @@
                 <div class="relative w-full aspect-square max-w-lg mx-auto">
                     <div class="absolute inset-0 rounded-full border border-teal-400/10" style="animation: borderGlow 4s ease-in-out infinite;"></div>
                     <div class="absolute inset-4 rounded-full border border-teal-400/5"></div>
-                    <div class="absolute inset-8 rounded-full bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden">
-                        <img src="doctor.jpg" alt="د. محمد طارق أبوالرُب" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-8 rounded-full bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden flex items-center justify-center border border-teal-400/10">
+                        <img src="logo.svg" alt="Aburub Dental Clinic" class="w-3/4 h-auto">
                     </div>
                     <div class="hero-float-card-1 absolute -bottom-2 right-10 bg-navy-800 border border-teal-400/20 rounded-2xl px-5 py-3 shadow-2xl" style="animation: float 4s ease-in-out infinite;">
                         <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-teal-400/10 flex items-center justify-center"><svg class="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><div><p class="text-teal-300 font-bold text-lg">+2000</p><p class="text-cream-200/40 text-xs">حالة ناجحة</p></div></div>
@@ -389,31 +423,31 @@
     <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-transparent to-navy-900"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 why-header">
-            <span class="text-teal-400 text-sm font-medium tracking-wider">ليه تختارنا؟</span>
-            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">عارفين إن زيارة <span class="text-teal-400">طبيب الأسنان</span> ممكن تكون صعبة</h2>
-            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">عشان كده بنيت العيادة دي لتغيير التجربة بالكامل</p>
+            <span class="text-teal-400 text-sm font-medium tracking-wider">لماذا تختارنا؟</span>
+            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">نعلم أن زيارة <span class="text-teal-400">طبيب الأسنان</span> قد تكون صعبة</h2>
+            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">لذلك أسسنا هذه العيادة لتغيير التجربة بالكامل</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6 lg:gap-8 perspective-container">
             <div class="why-card bg-navy-900/60 rounded-3xl p-8 border border-teal-400/10 hover:border-teal-400/30 transition-all group glow-card">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-500/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-red-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z"/></svg></div>
-                <h3 class="text-xl font-bold mb-3 text-cream-100">خايف من الألم؟</h3>
-                <p class="text-cream-200/50 leading-relaxed mb-4">أغلب اللي بيأجلوا علاج أسنانهم بيكون السبب الخوف من الألم. ده شعور طبيعي ومقدرينه تماماً.</p>
+                <h3 class="text-xl font-bold mb-3 text-cream-100">تخشى الألم؟</h3>
+                <p class="text-cream-200/50 leading-relaxed mb-4">أغلب من يؤجلون علاج أسنانهم يكون السبب الخوف من الألم. هذا شعور طبيعي ونقدّره تماماً.</p>
                 <div class="teal-line my-4"></div>
-                <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center"><svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><p class="text-teal-300 text-sm font-medium">تخدير حديث — مش هتحس بأي حاجة</p></div>
+                <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center"><svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><p class="text-teal-300 text-sm font-medium">تخدير حديث — لن تشعر بأي شيء</p></div>
             </div>
             <div class="why-card bg-navy-900/60 rounded-3xl p-8 border border-teal-400/10 hover:border-teal-400/30 transition-all group glow-card">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/10 to-amber-500/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-amber-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg></div>
-                <h3 class="text-xl font-bold mb-3 text-cream-100">التكلفة مقلقاك؟</h3>
-                <p class="text-cream-200/50 leading-relaxed mb-4">فاهمين إن تكلفة العلاج ممكن تكون عبء. عشان كده عندنا حلول تناسب كل الميزانيات.</p>
+                <h3 class="text-xl font-bold mb-3 text-cream-100">التكلفة تقلقك؟</h3>
+                <p class="text-cream-200/50 leading-relaxed mb-4">نتفهم أن تكلفة العلاج قد تكون عبئاً. لذلك لدينا حلول تناسب جميع الميزانيات.</p>
                 <div class="teal-line my-4"></div>
-                <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center"><svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><p class="text-teal-300 text-sm font-medium">تقسيط بدون فوائد — لحد 12 شهر</p></div>
+                <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center"><svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><p class="text-teal-300 text-sm font-medium">تقسيط بدون فوائد — حتى 12 شهراً</p></div>
             </div>
             <div class="why-card bg-navy-900/60 rounded-3xl p-8 border border-teal-400/10 hover:border-teal-400/30 transition-all group glow-card">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-500/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-blue-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                <h3 class="text-xl font-bold mb-3 text-cream-100">مش لاقي وقت؟</h3>
-                <p class="text-cream-200/50 leading-relaxed mb-4">حياتك مشغولة ومفيش وقت تروح عيادة كل يوم. إحنا صممنا خطط علاج سريعة ومريحة.</p>
+                <h3 class="text-xl font-bold mb-3 text-cream-100">لا تجد وقتاً؟</h3>
+                <p class="text-cream-200/50 leading-relaxed mb-4">حياتك مشغولة ولا وقت لزيارة العيادة يومياً. لذلك صممنا خطط علاج سريعة ومريحة.</p>
                 <div class="teal-line my-4"></div>
-                <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center"><svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><p class="text-teal-300 text-sm font-medium">جلسات مجمّعة — أقل زيارات، أفضل نتيجة</p></div>
+                <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center"><svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><p class="text-teal-300 text-sm font-medium">جلسات مجمّعة — زيارات أقل، نتائج أفضل</p></div>
             </div>
         </div>
     </div>
@@ -426,8 +460,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 services-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">خدماتنا</span>
-            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">كل اللي أسنانك <span class="text-teal-400">محتاجاه</span></h2>
-            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">حلول متكاملة من أبسط حشوة لأعقد زراعة — كل حاجة تحت سقف واحد</p>
+            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">كل ما تحتاجه <span class="text-teal-400">أسنانك</span></h2>
+            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">حلول متكاملة من أبسط حشوة لأعقد زراعة — كل شيء تحت سقف واحد</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             <div class="service-item service-card bg-navy-800/50 rounded-3xl p-7 group cursor-pointer glow-card">
@@ -482,8 +516,8 @@
             </div>
             <div class="service-item service-card bg-gradient-to-br from-teal-400/10 to-teal-400/5 rounded-3xl p-7 flex flex-col items-center justify-center text-center border-teal-400/20 glow-card sm:col-span-2 xl:col-span-2">
                 <div class="w-14 h-14 rounded-full bg-teal-400/10 flex items-center justify-center mb-4"><i data-lucide="message-circle" class="w-7 h-7 text-teal-400"></i></div>
-                <h3 class="text-xl font-bold mb-2 text-teal-300">مش متأكد تحتاج إيه؟</h3>
-                <p class="text-cream-200/50 text-sm mb-5">كلمنا واحنا نساعدك تحدد أنسب خطة علاج ليك</p>
+                <h3 class="text-xl font-bold mb-2 text-teal-300">غير متأكد مما تحتاجه؟</h3>
+                <p class="text-cream-200/50 text-sm mb-5">تواصل معنا وسنساعدك في تحديد أنسب خطة علاج لك</p>
                 <a href="#booking" class="btn-teal px-8 py-3 rounded-full text-navy-900 font-bold text-sm">استشارة مجانية</a>
             </div>
         </div>
@@ -499,7 +533,11 @@
             <div class="doctor-image">
                 <div class="relative">
                     <div class="aspect-[3/4] rounded-3xl bg-gradient-to-br from-navy-700 to-navy-800 overflow-hidden border border-teal-400/10">
-                        <img src="doctor.jpg" alt="د. محمد طارق أبوالرُب" class="w-full h-full object-cover object-top">
+                        <img src="hero-bg.jpg" alt="عيادة أبوالرُب للأسنان" class="w-full h-full object-cover object-center">
+                    </div>
+                    <!-- Initials overlay on clinic image -->
+                    <div class="absolute top-6 right-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-2xl border-2 border-white/10">
+                        <span class="text-3xl font-bold text-white font-arabic">م.ط</span>
                     </div>
                     <div class="doctor-exp absolute -bottom-6 -left-6 sm:left-auto sm:-right-6 bg-teal-500 text-navy-900 rounded-2xl p-6 shadow-2xl">
                         <p class="text-4xl font-bold font-display">+15</p>
@@ -510,13 +548,13 @@
             <div class="doctor-text">
                 <span class="text-teal-400 text-sm font-medium tracking-wider">تعرف على طبيبك</span>
                 <h2 class="font-arabic text-3xl sm:text-4xl font-bold mt-3 mb-6">د. محمد طارق أبوالرُب</h2>
-                <p class="text-cream-200/50 text-lg leading-relaxed mb-8">أكتر من 15 سنة في مجال طب الأسنان التجميلي والزراعة. حاصل على شهادات دولية من أرقى الجامعات. فلسفتي بسيطة: كل مريض يستاهل أحسن نتيجة ممكنة — بدون ألم وبدون قلق.</p>
+                <p class="text-cream-200/50 text-lg leading-relaxed mb-8">أكثر من 15 عاماً في مجال طب الأسنان التجميلي والزراعة. حاصل على شهادات دولية من أرقى الجامعات. فلسفتي بسيطة: كل مريض يستحق أفضل نتيجة ممكنة — بدون ألم وبدون قلق.</p>
                 <div class="space-y-4 mb-8">
                     <div class="doctor-credential flex items-center gap-4 bg-navy-900/40 rounded-2xl p-4 border border-teal-400/5"><div class="w-10 h-10 rounded-xl bg-teal-400/10 flex items-center justify-center shrink-0"><i data-lucide="graduation-cap" class="w-5 h-5 text-teal-400"></i></div><div><p class="text-cream-100 font-medium">دكتوراة في طب الأسنان التجميلي</p><p class="text-cream-200/40 text-sm">خبرة أكاديمية وعملية متقدمة</p></div></div>
                     <div class="doctor-credential flex items-center gap-4 bg-navy-900/40 rounded-2xl p-4 border border-teal-400/5"><div class="w-10 h-10 rounded-xl bg-teal-400/10 flex items-center justify-center shrink-0"><i data-lucide="award" class="w-5 h-5 text-teal-400"></i></div><div><p class="text-cream-100 font-medium">شهادات دولية معتمدة</p><p class="text-cream-200/40 text-sm">تدريب متقدم في أوروبا</p></div></div>
                     <div class="doctor-credential flex items-center gap-4 bg-navy-900/40 rounded-2xl p-4 border border-teal-400/5"><div class="w-10 h-10 rounded-xl bg-teal-400/10 flex items-center justify-center shrink-0"><i data-lucide="plane" class="w-5 h-5 text-teal-400"></i></div><div><p class="text-cream-100 font-medium">تدريب متقدم في ألمانيا وسويسرا</p><p class="text-cream-200/40 text-sm">زراعة وتجميل متقدم</p></div></div>
                 </div>
-                <blockquote class="doctor-quote relative bg-navy-900/40 rounded-2xl p-6 border-r-4 border-teal-400"><svg class="absolute top-4 left-4 w-8 h-8 text-teal-400/10" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg><p class="text-cream-200/70 italic leading-relaxed text-lg font-arabic">"كل ابتسامة بصممها بحب. مش مجرد علاج — ده فن. وأنت تستاهل تكون تحفة."</p><cite class="block mt-3 text-teal-400 text-sm not-italic font-medium">— د. محمد طارق أبوالرُب</cite></blockquote>
+                <blockquote class="doctor-quote relative bg-navy-900/40 rounded-2xl p-6 border-r-4 border-teal-400"><svg class="absolute top-4 left-4 w-8 h-8 text-teal-400/10" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg><p class="text-cream-200/70 italic leading-relaxed text-lg font-arabic">"كل ابتسامة أصممها بحب. ليس مجرد علاج — إنه فن. وأنت تستحق أن تكون تحفة."</p><cite class="block mt-3 text-teal-400 text-sm not-italic font-medium">— د. محمد طارق أبوالرُب</cite></blockquote>
             </div>
         </div>
     </div>
@@ -529,12 +567,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 results-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">نتائج حقيقية</span>
-            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">شوف الفرق <span class="text-teal-400">بعينك</span></h2>
-            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">نتائج حقيقية لمرضى حقيقيين — مش فوتوشوب</p>
+            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">شاهد الفرق <span class="text-teal-400">بعينك</span></h2>
+            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">نتائج حقيقية لمرضى حقيقيين — بدون تعديل</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
             <div class="result-card rounded-3xl overflow-hidden border border-teal-400/10"><div class="aspect-[4/3] bg-gradient-to-br from-navy-700 to-navy-800 flex items-center justify-center"><div class="text-center"><div class="flex items-center justify-center gap-4 mb-4"><div class="w-16 h-16 rounded-xl bg-red-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">قبل</span></div><svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg><div class="w-16 h-16 rounded-xl bg-green-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">بعد</span></div></div><p class="text-teal-400/30 text-xs">صور قبل وبعد</p></div></div><div class="p-5 bg-navy-800/50"><p class="text-cream-100 font-bold">Hollywood Smile — فينيرز</p><p class="text-cream-200/40 text-sm mt-1">10 وحدات فينيرز بورسلين — 3 جلسات فقط</p></div></div>
-            <div class="result-card rounded-3xl overflow-hidden border border-teal-400/10"><div class="aspect-[4/3] bg-gradient-to-br from-navy-700 to-navy-800 flex items-center justify-center"><div class="text-center"><div class="flex items-center justify-center gap-4 mb-4"><div class="w-16 h-16 rounded-xl bg-red-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">قبل</span></div><svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg><div class="w-16 h-16 rounded-xl bg-green-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">بعد</span></div></div><p class="text-teal-400/30 text-xs">صور قبل وبعد</p></div></div><div class="p-5 bg-navy-800/50"><p class="text-cream-100 font-bold">زراعة أسنان كاملة</p><p class="text-cream-200/40 text-sm mt-1">4 زراعات + تركيبات ثابتة — ضمان 10 سنين</p></div></div>
+            <div class="result-card rounded-3xl overflow-hidden border border-teal-400/10"><div class="aspect-[4/3] bg-gradient-to-br from-navy-700 to-navy-800 flex items-center justify-center"><div class="text-center"><div class="flex items-center justify-center gap-4 mb-4"><div class="w-16 h-16 rounded-xl bg-red-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">قبل</span></div><svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg><div class="w-16 h-16 rounded-xl bg-green-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">بعد</span></div></div><p class="text-teal-400/30 text-xs">صور قبل وبعد</p></div></div><div class="p-5 bg-navy-800/50"><p class="text-cream-100 font-bold">زراعة أسنان كاملة</p><p class="text-cream-200/40 text-sm mt-1">4 زراعات + تركيبات ثابتة — ضمان 10 سنوات</p></div></div>
             <div class="result-card rounded-3xl overflow-hidden border border-teal-400/10"><div class="aspect-[4/3] bg-gradient-to-br from-navy-700 to-navy-800 flex items-center justify-center"><div class="text-center"><div class="flex items-center justify-center gap-4 mb-4"><div class="w-16 h-16 rounded-xl bg-red-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">قبل</span></div><svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg><div class="w-16 h-16 rounded-xl bg-green-500/10 flex items-center justify-center"><span class="text-cream-200/30 text-xs">بعد</span></div></div><p class="text-teal-400/30 text-xs">صور قبل وبعد</p></div></div><div class="p-5 bg-navy-800/50"><p class="text-cream-100 font-bold">تبييض بالليزر</p><p class="text-cream-200/40 text-sm mt-1">جلسة واحدة — فرق 6 درجات في اللون</p></div></div>
         </div>
     </div>
@@ -547,18 +585,18 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 testimonials-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">آراء مرضانا</span>
-            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">مش إحنا اللي بنقول — <span class="text-teal-400">هم اللي بيقولوا</span></h2>
+            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">لسنا نحن من يقول — <span class="text-teal-400">هم من يقولون</span></h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"كنت خايفة جداً من زراعة الأسنان. الدكتور طمّني من أول جلسة ومحسيتش بأي ألم. النتيجة فوق الخيال!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">س.م</span></div><div><p class="text-cream-100 font-bold">سارة محمد</p><p class="text-cream-200/40 text-sm">زراعة أسنان</p></div></div></div>
-            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"عملت هوليود سمايل والنتيجة طبيعية جداً. الدكتور فنان بمعنى الكلمة. أحلى فلوس صرفتها في حياتي!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">أ.ع</span></div><div><p class="text-cream-100 font-bold">أحمد عبدالله</p><p class="text-cream-200/40 text-sm">Hollywood Smile</p></div></div></div>
-            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"بنتي كانت خايفة من دكتور الأسنان. دلوقتي هي اللي بتطلب تروح العيادة! شكراً من القلب."</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">م.ح</span></div><div><p class="text-cream-100 font-bold">مريم حسين</p><p class="text-cream-200/40 text-sm">أسنان أطفال</p></div></div></div>
+            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"كنت خائفة جداً من زراعة الأسنان. الطبيب طمأنني من أول جلسة ولم أشعر بأي ألم. النتيجة فاقت التوقعات!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">س.م</span></div><div><p class="text-cream-100 font-bold">سارة محمد</p><p class="text-cream-200/40 text-sm">زراعة أسنان</p></div></div></div>
+            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"أجريت هوليوود سمايل والنتيجة طبيعية جداً. الطبيب فنان بمعنى الكلمة. أفضل استثمار في حياتي!"</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">أ.ع</span></div><div><p class="text-cream-100 font-bold">أحمد عبدالله</p><p class="text-cream-200/40 text-sm">Hollywood Smile</p></div></div></div>
+            <div class="testimonial-item testimonial-card bg-navy-900/50 rounded-3xl p-8"><div class="flex items-center gap-1 mb-4 stars-container"><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span><span class="star-item text-gold-400 text-xl">★</span></div><p class="text-cream-200/60 leading-relaxed mb-6 text-lg font-arabic">"كانت ابنتي خائفة من طبيب الأسنان. الآن هي من تطلب الذهاب إلى العيادة! شكراً من القلب."</p><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400/20 to-teal-400/5 flex items-center justify-center"><span class="text-teal-400 font-bold">م.ح</span></div><div><p class="text-cream-100 font-bold">مريم حسين</p><p class="text-cream-200/40 text-sm">أسنان أطفال</p></div></div></div>
         </div>
         <div class="mt-12 text-center testimonials-rating">
             <div class="inline-flex items-center gap-3 bg-navy-900/50 border border-teal-400/10 rounded-full px-8 py-4">
                 <span class="text-gold-400 text-xl">★★★★★</span>
                 <div class="w-px h-8 bg-teal-400/20"></div>
-                <div class="text-right"><p class="text-cream-100 font-bold">4.9 / 5</p><p class="text-cream-200/40 text-xs">من +200 تقييم على Google</p></div>
+                <div class="text-right"><p class="text-cream-100 font-bold">4.9 / 5</p><p class="text-cream-200/40 text-xs">من أكثر من 200 تقييم على Google</p></div>
             </div>
         </div>
     </div>
@@ -570,9 +608,9 @@
 <section id="journey" class="relative py-24 lg:py-32 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 journey-header">
-            <span class="text-teal-400 text-sm font-medium tracking-wider">رحلتك معانا</span>
+            <span class="text-teal-400 text-sm font-medium tracking-wider">رحلتك معنا</span>
             <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">من أول خطوة <span class="text-teal-400">لابتسامتك الجديدة</span></h2>
-            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">4 خطوات بسيطة — واحنا معاك في كل خطوة</p>
+            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">4 خطوات بسيطة — ونحن معك في كل خطوة</p>
         </div>
         <div class="grid md:grid-cols-4 gap-6 relative journey-grid">
             <!-- Animated connecting line (desktop) -->
@@ -589,7 +627,7 @@
                     <!-- Connector dot on the icon -->
                 </div>
                 <h3 class="text-lg font-bold mb-2 text-cream-100">احجز موعدك</h3>
-                <p class="text-cream-200/40 text-sm leading-relaxed">املا الفورم أو كلمنا واتساب — هنرد عليك خلال ساعة</p>
+                <p class="text-cream-200/40 text-sm leading-relaxed">املأ النموذج أو تواصل معنا عبر واتساب — سنرد عليك خلال ساعة</p>
             </div>
             <div class="journey-step text-center group relative" style="z-index: 2;">
                 <div class="relative mb-6">
@@ -597,7 +635,7 @@
                     <span class="step-badge absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-teal-500 text-navy-900 font-bold text-sm flex items-center justify-center">2</span>
                 </div>
                 <h3 class="text-lg font-bold mb-2 text-cream-100">فحص شامل</h3>
-                <p class="text-cream-200/40 text-sm leading-relaxed">فحص كامل بأحدث الأجهزة + خطة علاج مفصلة ومخصصة ليك</p>
+                <p class="text-cream-200/40 text-sm leading-relaxed">فحص كامل بأحدث الأجهزة + خطة علاج مفصلة ومخصصة لك</p>
             </div>
             <div class="journey-step text-center group relative" style="z-index: 2;">
                 <div class="relative mb-6">
@@ -625,13 +663,13 @@
 <section id="pricing" class="relative py-24 lg:py-32 bg-navy-800/30 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 pricing-header">
-            <span class="text-teal-400 text-sm font-medium tracking-wider">سهّلناها عليك</span>
+            <span class="text-teal-400 text-sm font-medium tracking-wider">يسّرناها لك</span>
             <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">أسعار شفافة & <span class="text-teal-400">تقسيط مريح</span></h2>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            <div class="pricing-card bg-navy-900/50 rounded-2xl p-6 border border-teal-400/10 text-center"><span class="pricing-icon mb-3 block"><i data-lucide="credit-card" class="w-8 h-8 text-teal-400 mx-auto"></i></span><p class="text-cream-100 font-bold mb-1">تقسيط بدون فوائد</p><p class="text-cream-200/40 text-sm">لحد 12 شهر</p></div>
+            <div class="pricing-card bg-navy-900/50 rounded-2xl p-6 border border-teal-400/10 text-center"><span class="pricing-icon mb-3 block"><i data-lucide="credit-card" class="w-8 h-8 text-teal-400 mx-auto"></i></span><p class="text-cream-100 font-bold mb-1">تقسيط بدون فوائد</p><p class="text-cream-200/40 text-sm">حتى 12 شهراً</p></div>
             <div class="pricing-card bg-navy-900/50 rounded-2xl p-6 border border-teal-400/10 text-center"><span class="pricing-icon mb-3 block"><i data-lucide="tag" class="w-8 h-8 text-teal-400 mx-auto"></i></span><p class="text-cream-100 font-bold mb-1">أسعار واضحة</p><p class="text-cream-200/40 text-sm">بدون تكاليف مخفية</p></div>
-            <div class="pricing-card bg-navy-900/50 rounded-2xl p-6 border border-teal-400/10 text-center"><span class="pricing-icon mb-3 block"><i data-lucide="shield" class="w-8 h-8 text-teal-400 mx-auto"></i></span><p class="text-cream-100 font-bold mb-1">ضمان على الخامات</p><p class="text-cream-200/40 text-sm">لحد 10 سنين</p></div>
+            <div class="pricing-card bg-navy-900/50 rounded-2xl p-6 border border-teal-400/10 text-center"><span class="pricing-icon mb-3 block"><i data-lucide="shield" class="w-8 h-8 text-teal-400 mx-auto"></i></span><p class="text-cream-100 font-bold mb-1">ضمان على الخامات</p><p class="text-cream-200/40 text-sm">حتى 10 سنوات</p></div>
             <div class="pricing-card bg-navy-900/50 rounded-2xl p-6 border border-teal-400/10 text-center"><span class="pricing-icon mb-3 block"><i data-lucide="handshake" class="w-8 h-8 text-teal-400 mx-auto"></i></span><p class="text-cream-100 font-bold mb-1">استشارة أولى مجانية</p><p class="text-cream-200/40 text-sm">فحص + خطة علاج</p></div>
         </div>
     </div>
@@ -646,22 +684,22 @@
         <div class="text-center mb-12 booking-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">احجز الآن</span>
             <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">ابتسامتك الجديدة <span class="text-teal-400">تبدأ من هنا</span></h2>
-            <p class="text-cream-200/50 text-lg">املا البيانات دي وهنتواصل معاك خلال ساعة</p>
+            <p class="text-cream-200/50 text-lg">املأ البيانات التالية وسنتواصل معك خلال ساعة</p>
         </div>
         <div class="text-center mb-8 booking-urgency">
             <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-5 py-2">
                 <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                <span class="text-red-300 text-sm font-medium">باقي 3 مواعيد فقط هذا الأسبوع — احجز قبل ما تخلص</span>
+                <span class="text-red-300 text-sm font-medium">باقي 3 مواعيد فقط هذا الأسبوع — احجز قبل أن تنتهي</span>
             </div>
         </div>
         <div class="booking-form bg-navy-800/50 rounded-3xl p-8 sm:p-12 border border-teal-400/10 backdrop-blur-sm">
             <div class="space-y-6">
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الاسم بالكامل</label><input type="text" placeholder="محمد أحمد" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all"></div>
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">رقم الموبايل</label><input type="tel" placeholder="01X XXXX XXXX" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختار الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>مش متأكد — محتاج استشارة</option></select></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">رقم الهاتف المحمول</label><input type="tel" placeholder="01X XXXX XXXX" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختر الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>غير متأكد — أحتاج استشارة</option></select></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">اليوم المفضل</label><input type="date" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all"></div>
                 <button class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
-                <div class="form-field flex items-center justify-center gap-6 pt-4"><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><span>بياناتك آمنة 100%</span></div><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span>هنرد خلال ساعة</span></div></div>
+                <div class="form-field flex items-center justify-center gap-6 pt-4"><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><span>بياناتك آمنة 100%</span></div><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span>سنرد خلال ساعة</span></div></div>
             </div>
         </div>
     </div>
@@ -673,8 +711,8 @@
 <footer id="contact" class="relative py-16 bg-navy-900 border-t border-teal-400/10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-3 gap-12 mb-12">
-            <div class="footer-col"><div class="flex items-center gap-3 mb-6"><img src="logo.svg" alt="Aburub Dental Clinic" class="h-12 w-auto brightness-0 invert"></div><p class="text-cream-200/40 leading-relaxed text-sm">عيادة أسنان متكاملة — خبرة سنين ونتائج تتكلم عن نفسها. ابتسامتك أمانة في إيدينا.</p></div>
-            <div class="footer-col"><h3 class="text-cream-100 font-bold mb-6">تواصل معانا</h3><div class="space-y-4"><a href="tel:+201XXXXXXXXX" class="flex items-center gap-3 text-cream-200/50 hover:text-teal-400 transition-colors group"><div class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center group-hover:border-teal-400/30 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><span class="text-sm" dir="ltr">01X XXXX XXXX</span></a><a href="#" class="flex items-center gap-3 text-cream-200/50 hover:text-teal-400 transition-colors group"><div class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center group-hover:border-teal-400/30 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><span class="text-sm">[عنوان العيادة]</span></a></div></div>
+            <div class="footer-col"><div class="flex items-center gap-3 mb-6"><img src="logo.svg" alt="Aburub Dental Clinic" class="h-12 w-auto brightness-0 invert"></div><p class="text-cream-200/40 leading-relaxed text-sm">عيادة أسنان متكاملة — خبرة سنوات ونتائج تتحدث عن نفسها. ابتسامتك أمانة بين أيدينا.</p></div>
+            <div class="footer-col"><h3 class="text-cream-100 font-bold mb-6">تواصل معنا</h3><div class="space-y-4"><a href="tel:+201XXXXXXXXX" class="flex items-center gap-3 text-cream-200/50 hover:text-teal-400 transition-colors group"><div class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center group-hover:border-teal-400/30 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><span class="text-sm" dir="ltr">01X XXXX XXXX</span></a><a href="#" class="flex items-center gap-3 text-cream-200/50 hover:text-teal-400 transition-colors group"><div class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center group-hover:border-teal-400/30 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><span class="text-sm">[عنوان العيادة]</span></a></div></div>
             <div class="footer-col"><h3 class="text-cream-100 font-bold mb-6">مواعيد العمل</h3><div class="space-y-3 text-sm"><div class="flex justify-between text-cream-200/50"><span>السبت - الخميس</span><span dir="ltr">10:00 AM - 10:00 PM</span></div><div class="flex justify-between text-cream-200/50"><span>الجمعة</span><span dir="ltr">2:00 PM - 10:00 PM</span></div><div class="teal-line my-4"></div><p class="text-teal-400/60 text-xs"><i data-lucide="siren" class="w-4 h-4 inline text-red-400"></i> متاح حالات الطوارئ على مدار الساعة</p></div><div class="flex items-center gap-3 mt-6"><a href="#" class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center hover:border-teal-400/30 transition-colors text-cream-200/40 hover:text-teal-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="#" class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center hover:border-teal-400/30 transition-colors text-cream-200/40 hover:text-teal-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="#" class="w-10 h-10 rounded-xl bg-navy-800 border border-teal-400/10 flex items-center justify-center hover:border-teal-400/30 transition-colors text-cream-200/40 hover:text-teal-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.4a6.37 6.37 0 00-.79-.05A6.28 6.28 0 003.2 15.22a6.28 6.28 0 006.28 6.28 6.28 6.28 0 006.29-6.28V8.69a8.22 8.22 0 004.82 1.56v-3.4a4.85 4.85 0 01-1-.16z"/></svg></a></div></div>
         </div>
         <div class="teal-line mb-8"></div>
@@ -684,7 +722,7 @@
 </footer>
 
 <!-- WhatsApp Float -->
-<a href="https://wa.me/+201XXXXXXXXX?text=أهلاً، عايز أحجز موعد" target="_blank" class="whatsapp-float fixed bottom-6 left-6 z-40 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"><svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a href="https://wa.me/+201XXXXXXXXX?text=أهلاً، أريد حجز موعد" target="_blank" class="whatsapp-float fixed bottom-6 left-6 z-40 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"><svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <!-- Social Proof Popup -->
 <div id="social-proof" class="fixed bottom-6 right-6 z-40 bg-navy-800/95 backdrop-blur-xl border border-teal-400/20 rounded-2xl p-4 shadow-2xl max-w-xs transform translate-y-full opacity-0 transition-all duration-500"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><p class="text-cream-100 text-sm font-medium" id="proof-text">أحمد من المنصورة حجز موعد</p><p class="text-cream-200/40 text-xs" id="proof-time">قبل 5 دقائق</p></div></div></div>
@@ -816,30 +854,21 @@ themeToggle.addEventListener('click', () => {
         opacity: 0, y: 20, duration: 0.6, delay: 0.4
     });
 
-    // Cards with 3D rotation from different angles
+    // Cards smooth scrub — tied to scroll for buttery animation
     const whyCards = gsap.utils.toArray('.why-card');
-    const rotations = [
-        { rotateY: 90, rotateX: 10, x: -100 },
-        { rotateX: -90, rotateY: 0, y: 100 },
-        { rotateY: -90, rotateX: -10, x: 100 }
-    ];
-
     whyCards.forEach((card, i) => {
-        const r = rotations[i];
-        gsap.from(card, {
-            scrollTrigger: { trigger: card, start: 'top 85%' },
-            opacity: 0,
-            rotateX: r.rotateX || 0,
-            rotateY: r.rotateY || 0,
-            x: r.x || 0,
-            y: r.y || 0,
-            scale: 0.7,
-            duration: 1,
-            delay: i * 0.2,
-            ease: 'back.out(1.4)',
-            transformOrigin: 'center center',
-            clearProps: 'transform'
-        });
+        gsap.fromTo(card,
+            { opacity: 0, y: 60, scale: 0.95, filter: 'blur(4px)' },
+            {
+                opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 95%',
+                    end: 'top 60%',
+                    scrub: 0.8
+                }
+            }
+        );
     });
 })();
 
