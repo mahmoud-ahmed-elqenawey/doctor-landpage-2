@@ -13,6 +13,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -282,6 +286,22 @@
         .whatsapp-float { animation: float 3s ease-in-out infinite; box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
         .stat-number { font-variant-numeric: tabular-nums; }
         .form-input:focus { border-color: #17aeb6; box-shadow: 0 0 0 3px rgba(23,174,182,0.15); }
+        /* Flatpickr brand theme */
+        .flatpickr-calendar { background: #0a1929 !important; border: 1px solid rgba(23,174,182,0.25) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important; font-family: 'Tajawal', sans-serif !important; }
+        .flatpickr-months, .flatpickr-month, .flatpickr-current-month, .flatpickr-monthDropdown-months, .flatpickr-weekdays, .flatpickr-weekday { background: transparent !important; color: #f2f6ff !important; fill: #f2f6ff !important; }
+        .flatpickr-current-month input.cur-year { color: #f2f6ff !important; }
+        .flatpickr-prev-month, .flatpickr-next-month { color: #17aeb6 !important; fill: #17aeb6 !important; }
+        .flatpickr-prev-month svg, .flatpickr-next-month svg { fill: #17aeb6 !important; }
+        .flatpickr-day { color: #cfd8e8 !important; }
+        .flatpickr-day.today { border-color: #17aeb6 !important; color: #17aeb6 !important; }
+        .flatpickr-day.selected, .flatpickr-day.selected:hover { background: #17aeb6 !important; border-color: #17aeb6 !important; color: #0a1929 !important; font-weight: 700; }
+        .flatpickr-day:hover { background: rgba(23,174,182,0.15) !important; border-color: transparent !important; color: #f2f6ff !important; }
+        .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover { color: rgba(207,216,232,0.2) !important; }
+        body.light-mode .flatpickr-calendar { background: #ffffff !important; border-color: #e2e8f0 !important; }
+        body.light-mode .flatpickr-months, body.light-mode .flatpickr-month, body.light-mode .flatpickr-current-month, body.light-mode .flatpickr-weekday { color: #1a202c !important; fill: #1a202c !important; }
+        body.light-mode .flatpickr-current-month input.cur-year { color: #1a202c !important; }
+        body.light-mode .flatpickr-day { color: #4a5568 !important; }
+        body.light-mode .flatpickr-day.selected, body.light-mode .flatpickr-day.selected:hover { background: #17aeb6 !important; border-color: #17aeb6 !important; color: #fff !important; }
 
         /* Section reveal helpers */
         .section-hidden { visibility: hidden; }
@@ -313,6 +333,32 @@
         /* Smooth section transitions */
         section { position: relative; }
         section::before { content: ''; position: absolute; top: -80px; left: 0; right: 0; height: 80px; pointer-events: none; }
+
+        /* ── MOBILE FIXES ── */
+        @media (max-width: 767px) {
+            /* Hero: disable fixed attachment (broken on iOS) */
+            .hero-bg-layer {
+                background-attachment: scroll !important;
+                background-position: center center !important;
+                background-size: cover !important;
+            }
+
+            /* Testimonials: on mobile disable parallax, center image, strong overlay */
+            #testimonials {
+                background-attachment: scroll !important;
+                background-size: 200% auto !important;
+                background-position: center center !important;
+            }
+            #testimonials > .absolute {
+                background: rgba(8, 18, 35, 0.92) !important;
+                backdrop-filter: none !important;
+            }
+
+            /* Testimonials cards: readable on solid bg */
+            #testimonials .grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-navy-900 text-cream-50 grain">
@@ -362,7 +408,7 @@
 <!-- ============================================ -->
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
-        <div class="absolute inset-0 w-full h-full" style="background: url('hero-bg.jpg') center/cover no-repeat fixed;"></div>
+        <div class="hero-bg-layer absolute inset-0 w-full h-full" style="background: url('hero-bg.jpg') center/cover no-repeat fixed;"></div>
         <div class="absolute inset-0 bg-gradient-to-l from-navy-900/90 via-navy-900/55 to-navy-900/20"></div>
         <div class="absolute inset-0 bg-navy-900/20"></div>
         <div class="hero-blob-1 absolute top-0 left-0 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-[120px]"></div>
@@ -375,7 +421,7 @@
                     <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
                     <span class="text-teal-300 text-sm font-medium">نستقبل حجوزاتكم الآن</span>
                 </div>
-                <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300">تستحق الأفضل</span></h1>
+                <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300" style="display:inline-block; padding-bottom:0.15em; padding-top:0.05em;">تستحق الأفضل</span></h1>
                 <p class="hero-subtitle text-lg sm:text-xl text-cream-200/60 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0 mb-10">لن نعالج أسنانك فحسب — بل سنغيّر نظرتك لنفسك.<br>خبرة سنوات، تقنيات حديثة، ونتائج تتحدث عن نفسها.</p>
                 <div class="hero-cta flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                     <a href="#booking" class="btn-teal btn-teal-pulse px-10 py-4 rounded-full text-navy-900 font-bold text-lg w-full sm:w-auto text-center">احجز موعدك المجاني<span class="block text-xs font-normal opacity-70 mt-0.5">سنتواصل معك خلال ساعة</span></a>
@@ -682,19 +728,13 @@
             <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">ابتسامتك الجديدة <span class="text-teal-400">تبدأ من هنا</span></h2>
             <p class="text-cream-200/50 text-lg">املأ البيانات التالية وسنتواصل معك خلال ساعة</p>
         </div>
-        <div class="text-center mb-8 booking-urgency">
-            <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-5 py-2">
-                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                <span class="text-red-300 text-sm font-medium">باقي 3 مواعيد فقط هذا الأسبوع — احجز قبل أن تنتهي</span>
-            </div>
-        </div>
         <div class="booking-form bg-navy-800/50 rounded-3xl p-8 sm:p-12 border border-teal-400/10 backdrop-blur-sm">
             <div class="space-y-6">
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الاسم بالكامل</label><input type="text" placeholder="محمد أحمد" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all"></div>
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">رقم الهاتف المحمول</label><input type="tel" placeholder="01X XXXX XXXX" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختر الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>غير متأكد — أحتاج استشارة</option></select></div>
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">اليوم المفضل</label><input type="date" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all"></div>
-                <button class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الاسم بالكامل</label><input id="booking-name" type="text" placeholder="محمد أحمد" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all"></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">رقم الهاتف المحمول</label><input id="booking-phone" type="tel" placeholder="07X XXXX XXXX" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select id="booking-service" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختر الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>غير متأكد — أحتاج استشارة</option></select></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">اليوم المفضل</label><input id="booking-date" type="text" readonly placeholder="اختر التاريخ المناسب" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/30 outline-none transition-all cursor-pointer"></div>
+                <button id="booking-submit" type="button" class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
                 <div class="form-field flex items-center justify-center gap-6 pt-4"><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><span>بياناتك آمنة 100%</span></div><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span>سنرد خلال ساعة</span></div></div>
             </div>
         </div>
@@ -714,7 +754,11 @@
         </div>
         <div class="teal-line mb-8"></div>
         <div class="footer-map rounded-2xl overflow-hidden border border-teal-400/10 mb-8 h-64"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211.32748750856376!2d36.087640434708256!3d32.062762253613506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b65c4f97586eb%3A0x8e1c0775d360e347!2sAburub%20dental%20clinic!5e0!3m2!1sen!2sjo!4v1776181149616!5m2!1sen!2sjo" width="100%" height="100%" style="border:0;filter:grayscale(30%) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-        <p class="text-center text-cream-200/20 text-xs">&copy; 2026 Aburub Dental Clinic — جميع الحقوق محفوظة</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
+            <p class="text-cream-200/20 text-xs">&copy; 2026 Aburub Dental Clinic — جميع الحقوق محفوظة</p>
+            <span class="hidden sm:inline text-cream-200/10 text-xs">•</span>
+            <p class="text-cream-200/30 text-xs" dir="ltr">Powered by <a href="https://www.lastrada.agency/" target="_blank" rel="noopener noreferrer" class="text-teal-400/80 hover:text-teal-400 transition-colors font-medium">La Strada Agency</a></p>
+        </div>
     </div>
 </footer>
 
@@ -726,6 +770,10 @@
 <!-- MEGA ANIMATION SCRIPT -->
 <!-- ============================================ -->
 <script>
+// Always start at top on refresh
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 gsap.registerPlugin(ScrollTrigger);
 window.addEventListener('load', function() {
 
@@ -1141,12 +1189,6 @@ themeToggle.addEventListener('click', () => {
         y: 50, opacity: 0, duration: 0.8, ease: 'power3.out'
     });
 
-    gsap.from('.booking-urgency', {
-        scrollTrigger: { trigger: '#booking', start: 'top 75%' },
-        scale: 0.5, opacity: 0, duration: 0.6,
-        delay: 0.3, ease: 'back.out(1.5)'
-    });
-
     // Form container scales in
     gsap.from('.booking-form', {
         scrollTrigger: { trigger: '.booking-form', start: 'top 85%' },
@@ -1204,6 +1246,67 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 lucide.createIcons();
 
 }); // end window load
+
+// ========= Booking form: Flatpickr + WhatsApp submit =========
+(function () {
+    var WHATSAPP_NUMBER = '962790083393';
+
+    function initFlatpickr() {
+        var el = document.getElementById('booking-date');
+        if (!el || typeof flatpickr === 'undefined') return;
+        var today = new Date();
+        flatpickr(el, {
+            locale: (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.ar) ? flatpickr.l10ns.ar : 'default',
+            minDate: 'today',
+            maxDate: new Date(today.getFullYear(), today.getMonth() + 2, today.getDate()),
+            dateFormat: 'Y-m-d',
+            altInput: true,
+            altFormat: 'l، j F Y',
+            disableMobile: true,
+            position: 'auto'
+        });
+    }
+
+    function sendToWhatsApp() {
+        var name = (document.getElementById('booking-name') || {}).value || '';
+        var phone = (document.getElementById('booking-phone') || {}).value || '';
+        var service = (document.getElementById('booking-service') || {}).value || '';
+        var date = (document.getElementById('booking-date') || {}).value || '';
+
+        name = name.trim();
+        phone = phone.trim();
+
+        if (!name) { alert('من فضلك أدخل الاسم بالكامل'); return; }
+        if (!phone) { alert('من فضلك أدخل رقم الهاتف'); return; }
+
+        var lines = [
+            'السلام عليكم دكتور محمد،',
+            'أرغب في حجز موعد في عيادة أبوالرُب للأسنان.',
+            '',
+            'الاسم: ' + name,
+            'رقم الهاتف: ' + phone
+        ];
+        if (service) lines.push('الخدمة المطلوبة: ' + service);
+        if (date)    lines.push('التاريخ المفضل: ' + date);
+        lines.push('', 'شكراً لكم.');
+
+        var text = encodeURIComponent(lines.join('\n'));
+        var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text;
+        window.open(url, '_blank');
+    }
+
+    function bindSubmit() {
+        var btn = document.getElementById('booking-submit');
+        if (btn) btn.addEventListener('click', function (e) { e.preventDefault(); sendToWhatsApp(); });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () { initFlatpickr(); bindSubmit(); });
+    } else {
+        initFlatpickr();
+        bindSubmit();
+    }
+})();
 </script>
 
 </body>
