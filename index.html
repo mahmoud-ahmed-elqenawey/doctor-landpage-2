@@ -250,6 +250,15 @@
 
         /* Result card bottom strip */
         body.light-mode .result-card > div:last-child { background: #f0f9f9 !important; }
+        /* Remove dark overlay on result images in light mode */
+        body.light-mode .result-card .bg-gradient-to-t { background: transparent !important; }
+        /* Result card image container — keep transparent so photo shows */
+        body.light-mode .result-card .bg-navy-900 { background: transparent !important; }
+
+        /* Journey line — make track visible on light background */
+        body.light-mode .journey-line-bg { background: rgba(13,112,112,0.18) !important; }
+        body.light-mode .journey-line-fill { background: linear-gradient(270deg, #17aeb6, #0d7070, #17aeb6) !important; }
+        body.light-mode .journey-dot { background: #0d7070 !important; }
 
         /* Testimonials overlay */
         body.light-mode #testimonials .testimonial-card { background: rgba(255,255,255,0.92) !important; backdrop-filter: blur(8px) !important; border-color: rgba(13,112,112,0.1) !important; }
