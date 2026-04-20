@@ -54,8 +54,23 @@
         body.light-mode #mobile-menu a { color: #4a5568; }
 
         /* Hero overlay */
-        body.light-mode #hero > div > .bg-gradient-to-l { background: linear-gradient(to left, rgba(255,255,255,0.97), rgba(255,255,255,0.85), rgba(255,255,255,0.55)) !important; }
-        body.light-mode #hero .bg-navy-900\/40 { background: rgba(255,255,255,0.30) !important; }
+        /* ─────────────────────────────────────────────────────────
+           LIGHT MODE — Complete Premium Override
+           Brand palette: white base · teal-700 accent · warm shadows
+        ───────────────────────────────────────────────────────── */
+
+        /* Base */
+        body.light-mode { background: #f4f8f8 !important; color: #1a2e2e !important; }
+
+        /* Header */
+        body.light-mode header { background: rgba(255,255,255,0.97) !important; border-bottom-color: rgba(13,112,112,0.1) !important; box-shadow: 0 2px 20px rgba(13,112,112,0.06) !important; }
+        body.light-mode .header-scrolled { background: rgba(255,255,255,0.98) !important; box-shadow: 0 4px 30px rgba(13,112,112,0.1) !important; }
+        body.light-mode nav a { color: #2d4a4a !important; }
+        body.light-mode nav a:hover { color: #0d7070 !important; }
+
+        /* Hero overlay — thin so background photo shows through */
+        body.light-mode #hero > div > .bg-gradient-to-l { background: linear-gradient(to left, rgba(255,255,255,0.82), rgba(255,255,255,0.55), rgba(255,255,255,0.10)) !important; }
+        body.light-mode #hero .bg-navy-900\/20 { background: rgba(255,255,255,0.05) !important; }
         body.light-mode .hero-badge { background: rgba(13,112,112,0.08) !important; border-color: rgba(13,112,112,0.2) !important; }
         body.light-mode .hero-badge .animate-pulse { background: #0d7070 !important; }
         body.light-mode .hero-badge span:last-child { color: #0d7070 !important; }
@@ -85,61 +100,68 @@
         body.light-mode .hero-stats .teal-line { opacity: 0.5; }
 
         /* Sections backgrounds */
-        body.light-mode #why-us { background: #edf2f7 !important; }
-        body.light-mode #why-us .bg-gradient-to-b { background: linear-gradient(to bottom, #f5f7fa, transparent, #f5f7fa) !important; }
-        body.light-mode #doctor { background: #edf2f7 !important; }
+        body.light-mode #why-us { background: #eaf4f4 !important; }
+        body.light-mode #why-us .bg-gradient-to-b { background: linear-gradient(to bottom, #eaf4f4, transparent, #eaf4f4) !important; }
+        body.light-mode #doctor { background: linear-gradient(135deg, #eaf4f4 0%, #f4f8f8 100%) !important; }
+        body.light-mode #reels { background: #f4f8f8 !important; }
+        body.light-mode #results { background: #eaf4f4 !important; }
+        body.light-mode #journey { background: #f4f8f8 !important; }
         body.light-mode #testimonials { background-image: url('testimonials-bg.jpg') !important; background-attachment: fixed !important; background-size: cover !important; background-position: center !important; }
-        body.light-mode #testimonials > .absolute { background: rgba(255,255,255,0.82) !important; }
-        body.light-mode #pricing { background: #edf2f7 !important; }
+        body.light-mode #testimonials > .absolute { background: rgba(240,248,248,0.88) !important; backdrop-filter: blur(2px) !important; }
+        body.light-mode #pricing { background: linear-gradient(135deg, #eaf4f4 0%, #f4f8f8 100%) !important; }
+        body.light-mode #booking { background: #f4f8f8 !important; }
 
         /* Cards */
         body.light-mode .why-card,
         body.light-mode .service-card,
-        body.light-mode .testimonial-card { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
+        body.light-mode .testimonial-card,
+        body.light-mode .result-card,
+        body.light-mode .pricing-card { background: #ffffff !important; border-color: rgba(13,112,112,0.12) !important; box-shadow: 0 2px 12px rgba(13,112,112,0.06), 0 1px 3px rgba(0,0,0,0.04) !important; }
         body.light-mode .service-card:hover,
-        body.light-mode .why-card:hover { border-color: rgba(13,112,112,0.3) !important; box-shadow: 0 12px 40px rgba(0,0,0,0.1) !important; }
-        body.light-mode .testimonial-card:hover { border-color: rgba(13,112,112,0.3) !important; }
+        body.light-mode .why-card:hover { border-color: rgba(13,112,112,0.35) !important; box-shadow: 0 16px 50px rgba(13,112,112,0.12), 0 4px 12px rgba(0,0,0,0.06) !important; transform: translateY(-6px) scale(1.015) !important; }
+        body.light-mode .testimonial-card:hover { border-color: rgba(13,112,112,0.3) !important; box-shadow: 0 12px 40px rgba(13,112,112,0.1) !important; }
+        body.light-mode .result-card:hover { border-color: rgba(13,112,112,0.35) !important; box-shadow: 0 16px 50px rgba(13,112,112,0.12) !important; }
 
         /* Card text */
         body.light-mode .why-card h3,
-        body.light-mode .service-card h3 { color: #1a202c !important; }
+        body.light-mode .service-card h3 { color: #1a2e2e !important; }
         body.light-mode .why-card p,
-        body.light-mode .service-card p { color: #718096 !important; }
-        body.light-mode .testimonial-card p { color: #4a5568 !important; }
-        body.light-mode .testimonial-card .text-cream-100 { color: #1a202c !important; }
-        body.light-mode .testimonial-card .text-cream-200\/40 { color: #a0aec0 !important; }
+        body.light-mode .service-card p { color: #4a6565 !important; }
+        body.light-mode .testimonial-card p { color: #3a5555 !important; }
+        body.light-mode .testimonial-card .text-cream-100 { color: #1a2e2e !important; }
+        body.light-mode .testimonial-card .text-cream-200\/40 { color: #7a9a9a !important; }
 
         /* ALL text overrides */
-        body.light-mode h2, body.light-mode h3 { color: #1a202c !important; }
+        body.light-mode h2, body.light-mode h3 { color: #1a2e2e !important; }
         body.light-mode h2 .text-teal-400, body.light-mode h3.text-teal-300 { color: #0d7070 !important; }
         body.light-mode .text-teal-300 { color: #0d7070 !important; }
         body.light-mode .text-teal-400 { color: #0d7070 !important; }
-        body.light-mode [class*="text-cream-200/5"], body.light-mode [class*="text-cream-200\/5"] { color: #718096 !important; }
-        body.light-mode [class*="text-cream-200/4"], body.light-mode [class*="text-cream-200\/4"] { color: #a0aec0 !important; }
-        body.light-mode [class*="text-cream-200/6"], body.light-mode [class*="text-cream-200\/6"] { color: #4a5568 !important; }
-        body.light-mode [class*="text-cream-200/7"], body.light-mode [class*="text-cream-200\/7"] { color: #4a5568 !important; }
-        body.light-mode [class*="text-cream-200/8"], body.light-mode [class*="text-cream-200\/8"] { color: #2d3748 !important; }
-        body.light-mode [class*="text-cream-200/3"], body.light-mode [class*="text-cream-200\/3"] { color: #a0aec0 !important; }
-        body.light-mode [class*="text-cream-200/2"], body.light-mode [class*="text-cream-200\/2"] { color: #a0aec0 !important; }
-        body.light-mode .text-cream-50 { color: #1a202c !important; }
-        body.light-mode .text-cream-100 { color: #1a202c !important; }
+        body.light-mode [class*="text-cream-200/5"], body.light-mode [class*="text-cream-200\/5"] { color: #4a6565 !important; }
+        body.light-mode [class*="text-cream-200/4"], body.light-mode [class*="text-cream-200\/4"] { color: #7a9a9a !important; }
+        body.light-mode [class*="text-cream-200/6"], body.light-mode [class*="text-cream-200\/6"] { color: #3a5555 !important; }
+        body.light-mode [class*="text-cream-200/7"], body.light-mode [class*="text-cream-200\/7"] { color: #2d4444 !important; }
+        body.light-mode [class*="text-cream-200/8"], body.light-mode [class*="text-cream-200\/8"] { color: #1a2e2e !important; }
+        body.light-mode [class*="text-cream-200/3"], body.light-mode [class*="text-cream-200\/3"] { color: #8aabab !important; }
+        body.light-mode [class*="text-cream-200/2"], body.light-mode [class*="text-cream-200\/2"] { color: #9ab8b8 !important; }
+        body.light-mode .text-cream-50 { color: #1a2e2e !important; }
+        body.light-mode .text-cream-100 { color: #1a2e2e !important; }
         body.light-mode [class*="text-teal-400/6"], body.light-mode [class*="text-teal-400\/6"] { color: #0d7070 !important; }
-        body.light-mode [class*="text-teal-400/3"], body.light-mode [class*="text-teal-400\/3"] { color: #0d7070 !important; }
-        body.light-mode .text-navy-900 { color: #1a202c !important; }
+        body.light-mode [class*="text-teal-400/3"], body.light-mode [class*="text-teal-400\/3"] { color: rgba(13,112,112,0.5) !important; }
+        body.light-mode .text-navy-900 { color: #1a2e2e !important; }
 
         /* Doctor section */
-        body.light-mode .doctor-image .aspect-\[3\/4\] { border-color: #e2e8f0 !important; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+        body.light-mode .doctor-image .aspect-\[3\/4\] { border-color: rgba(13,112,112,0.15) !important; box-shadow: 0 12px 50px rgba(13,112,112,0.1); }
         body.light-mode .doctor-image img { border-radius: 1.5rem; }
-        body.light-mode .doctor-image [class*="from-teal-500"] { box-shadow: 0 4px 15px rgba(13,112,112,0.2); }
-        body.light-mode .doctor-exp { box-shadow: 0 8px 30px rgba(13,112,112,0.2) !important; }
+        body.light-mode .doctor-image [class*="from-teal-500"] { box-shadow: 0 4px 15px rgba(13,112,112,0.3); }
+        body.light-mode .doctor-exp { box-shadow: 0 12px 40px rgba(13,112,112,0.25) !important; }
         body.light-mode .doctor-text span { color: #0d7070 !important; }
-        body.light-mode .doctor-text > h2 { color: #1a202c !important; }
-        body.light-mode .doctor-text > p { color: #4a5568 !important; }
-        body.light-mode .doctor-credential { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
-        body.light-mode .doctor-credential p:first-child { color: #1a202c !important; }
-        body.light-mode .doctor-credential p:last-child { color: #718096 !important; }
-        body.light-mode .doctor-quote { background: white !important; border-color: #17aeb6 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
-        body.light-mode .doctor-quote p { color: #4a5568 !important; }
+        body.light-mode .doctor-text > h2 { color: #1a2e2e !important; }
+        body.light-mode .doctor-text > p { color: #3a5555 !important; }
+        body.light-mode .doctor-credential { background: #ffffff !important; border-color: rgba(13,112,112,0.12) !important; box-shadow: 0 2px 12px rgba(13,112,112,0.06); }
+        body.light-mode .doctor-credential p:first-child { color: #1a2e2e !important; }
+        body.light-mode .doctor-credential p:last-child { color: #5a7a7a !important; }
+        body.light-mode .doctor-quote { background: linear-gradient(135deg, #fff 0%, #f0f9f9 100%) !important; border-color: #17aeb6 !important; box-shadow: 0 4px 24px rgba(13,112,112,0.08); }
+        body.light-mode .doctor-quote p { color: #3a5555 !important; }
         body.light-mode .doctor-quote cite { color: #0d7070 !important; }
 
         /* Why-us card details */
@@ -158,23 +180,25 @@
         body.light-mode .result-card [class*="text-cream-200"] { color: #718096 !important; }
 
         /* Journey */
-        body.light-mode .step-icon { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        body.light-mode .journey-step h3 { color: #1a202c !important; }
-        body.light-mode .journey-step p { color: #a0aec0 !important; }
+        body.light-mode .step-icon { background: #ffffff !important; border-color: rgba(13,112,112,0.15) !important; box-shadow: 0 4px 20px rgba(13,112,112,0.08); }
+        body.light-mode .journey-step h3 { color: #1a2e2e !important; }
+        body.light-mode .journey-step p { color: #5a7a7a !important; }
 
         /* Pricing */
-        body.light-mode .pricing-card { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
-        body.light-mode .pricing-card p:nth-child(2) { color: #1a202c !important; }
-        body.light-mode .pricing-card p:last-child { color: #a0aec0 !important; }
+        body.light-mode .pricing-card { background: #ffffff !important; border-color: rgba(13,112,112,0.12) !important; box-shadow: 0 4px 20px rgba(13,112,112,0.07) !important; }
+        body.light-mode .pricing-card p:nth-child(2) { color: #1a2e2e !important; }
+        body.light-mode .pricing-card p:last-child { color: #7a9a9a !important; }
 
         /* Booking */
-        body.light-mode .booking-form { background: white !important; border-color: #e2e8f0 !important; box-shadow: 0 8px 30px rgba(0,0,0,0.06) !important; }
-        body.light-mode .form-input { background: #f7fafc !important; border-color: #e2e8f0 !important; color: #1a202c !important; }
-        body.light-mode .form-input::placeholder { color: #cbd5e0 }
-        body.light-mode .booking-header h2 { color: #1a202c !important; }
-        body.light-mode .booking-header p { color: #718096 !important; }
-        body.light-mode label { color: #4a5568 !important; }
-        body.light-mode .booking-glow { opacity: 0.3 !important; }
+        body.light-mode #booking { background: #eaf4f4 !important; }
+        body.light-mode .booking-form { background: #ffffff !important; border-color: rgba(13,112,112,0.15) !important; box-shadow: 0 12px 50px rgba(13,112,112,0.1) !important; }
+        body.light-mode .form-input { background: #f4fafa !important; border-color: rgba(13,112,112,0.18) !important; color: #1a2e2e !important; }
+        body.light-mode .form-input:focus { border-color: #0d7070 !important; box-shadow: 0 0 0 3px rgba(13,112,112,0.1) !important; }
+        body.light-mode .form-input::placeholder { color: #8aabab !important; }
+        body.light-mode .booking-header h2 { color: #1a2e2e !important; }
+        body.light-mode .booking-header p { color: #4a6565 !important; }
+        body.light-mode label { color: #3a5555 !important; }
+        body.light-mode .booking-glow { opacity: 0.25 !important; }
 
         /* Footer */
         body.light-mode #contact { background: #1a202c !important; color: #e2e8f0 !important; border-color: rgba(23,174,182,0.1) !important; }
@@ -192,34 +216,43 @@
 
         /* General navy backgrounds override */
         body.light-mode [class*="bg-navy-900/6"],
-        body.light-mode [class*="bg-navy-900\/6"] { background: #f7fafc !important; }
+        body.light-mode [class*="bg-navy-900\/6"] { background: #f0f9f9 !important; }
         body.light-mode [class*="bg-navy-900/5"],
-        body.light-mode [class*="bg-navy-900\/5"] { background: #f7fafc !important; }
+        body.light-mode [class*="bg-navy-900\/5"] { background: #f0f9f9 !important; }
         body.light-mode [class*="bg-navy-900/4"],
-        body.light-mode [class*="bg-navy-900\/4"] { background: #f7fafc !important; }
+        body.light-mode [class*="bg-navy-900\/4"] { background: #f4fbfb !important; }
         body.light-mode [class*="bg-navy-800/5"],
-        body.light-mode [class*="bg-navy-800\/5"] { background: white !important; }
+        body.light-mode [class*="bg-navy-800\/5"] { background: #ffffff !important; }
         body.light-mode [class*="bg-navy-800/3"],
-        body.light-mode [class*="bg-navy-800\/3"] { background: #edf2f7 !important; }
+        body.light-mode [class*="bg-navy-800\/3"] { background: #eaf4f4 !important; }
 
         /* All borders with teal opacity */
         body.light-mode [class*="border-teal-400/1"],
-        body.light-mode [class*="border-teal-400\/1"] { border-color: #e2e8f0 !important; }
+        body.light-mode [class*="border-teal-400\/1"] { border-color: rgba(13,112,112,0.12) !important; }
         body.light-mode [class*="border-teal-400/0"],
-        body.light-mode [class*="border-teal-400\/0"] { border-color: #e2e8f0 !important; }
+        body.light-mode [class*="border-teal-400\/0"] { border-color: rgba(13,112,112,0.10) !important; }
         body.light-mode [class*="border-teal-400/2"],
-        body.light-mode [class*="border-teal-400\/2"] { border-color: #d1dce5 !important; }
+        body.light-mode [class*="border-teal-400\/2"] { border-color: rgba(13,112,112,0.20) !important; }
 
         /* Icon backgrounds */
         body.light-mode [class*="bg-teal-400/10"],
-        body.light-mode [class*="bg-teal-400\/1"] { background: rgba(13,112,112,0.08) !important; }
+        body.light-mode [class*="bg-teal-400\/1"] { background: rgba(13,112,112,0.09) !important; }
         body.light-mode [class*="bg-green-500/10"],
-        body.light-mode [class*="bg-green-500\/1"] { background: rgba(72,187,120,0.1) !important; }
+        body.light-mode [class*="bg-green-500\/1"] { background: rgba(56,161,105,0.09) !important; }
         body.light-mode [class*="bg-red-500/10"],
-        body.light-mode [class*="bg-red-500\/1"] { background: rgba(245,101,101,0.1) !important; }
+        body.light-mode [class*="bg-red-500\/1"] { background: rgba(229,62,62,0.08) !important; }
 
         /* Gradient icon boxes */
-        body.light-mode [class*="from-teal-400/20"] { background: rgba(13,112,112,0.06) !important; }
+        body.light-mode [class*="from-teal-400/20"] { background: rgba(13,112,112,0.07) !important; }
+
+        /* Reels section */
+        body.light-mode .reel-card .rounded-3xl { border-color: rgba(13,112,112,0.2) !important; }
+
+        /* Result card bottom strip */
+        body.light-mode .result-card > div:last-child { background: #f0f9f9 !important; }
+
+        /* Testimonials overlay */
+        body.light-mode #testimonials .testimonial-card { background: rgba(255,255,255,0.92) !important; backdrop-filter: blur(8px) !important; border-color: rgba(13,112,112,0.1) !important; }
 
         /* Booking form fields */
         body.light-mode select.form-input { color: #4a5568 !important; }
