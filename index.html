@@ -600,6 +600,63 @@
 </section>
 
 <!-- ============================================ -->
+<!-- SECTION 4.5: REELS - Doctor at Work -->
+<!-- ============================================ -->
+<section id="reels" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reels-header">
+            <span class="text-teal-400 text-sm font-medium tracking-wider">من داخل العيادة</span>
+            <h2 class="font-arabic text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">شاهد الدكتور أثناء العمل</h2>
+            <p class="text-cream-200/50 text-lg max-w-2xl mx-auto">لحظات حقيقية من داخل العيادة — دقة، اهتمام بالتفاصيل، ونتائج تتحدث عن نفسها.</p>
+        </div>
+
+        <!-- Reels horizontal scroller -->
+        <!-- To add more reels: duplicate a .reel-card block and replace FILE_ID in the iframe src with the Google Drive file id from the share URL -->
+        <div class="reels-track flex gap-5 sm:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:justify-center" style="scrollbar-width: thin; scrollbar-color: #17aeb6 transparent;">
+
+            <!-- REEL 1 -->
+            <div class="reel-card relative shrink-0 w-[78vw] sm:w-[340px] lg:w-[320px] snap-center">
+                <div class="relative aspect-[9/16] rounded-3xl overflow-hidden border border-teal-400/20 bg-navy-900 shadow-[0_20px_50px_rgba(0,0,0,0.4)] group">
+                    <iframe src="https://drive.google.com/file/d/1Spb0_6LXNX9OcaUE94625P4mfhp5jO3_/preview" class="absolute inset-0 w-full h-full" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+                    <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-3xl"></div>
+                </div>
+                <div class="flex items-center justify-between mt-4 px-1">
+                    <span class="inline-flex items-center gap-2 text-teal-400 text-xs font-medium"><span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> من العيادة</span>
+                    <i data-lucide="play-circle" class="w-5 h-5 text-cream-200/40"></i>
+                </div>
+            </div>
+
+            <!-- REEL 2 -->
+            <div class="reel-card relative shrink-0 w-[78vw] sm:w-[340px] lg:w-[320px] snap-center">
+                <div class="relative aspect-[9/16] rounded-3xl overflow-hidden border border-teal-400/20 bg-navy-900 shadow-[0_20px_50px_rgba(0,0,0,0.4)] group">
+                    <iframe src="https://drive.google.com/file/d/1VoAK1RMNmHAA7c8jmzssL5wpM62OIhSe/preview" class="absolute inset-0 w-full h-full" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+                    <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-3xl"></div>
+                </div>
+                <div class="flex items-center justify-between mt-4 px-1">
+                    <span class="inline-flex items-center gap-2 text-teal-400 text-xs font-medium"><span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> من العيادة</span>
+                    <i data-lucide="play-circle" class="w-5 h-5 text-cream-200/40"></i>
+                </div>
+            </div>
+
+            <!-- REEL 3 -->
+            <div class="reel-card relative shrink-0 w-[78vw] sm:w-[340px] lg:w-[320px] snap-center">
+                <div class="relative aspect-[9/16] rounded-3xl overflow-hidden border border-teal-400/20 bg-navy-900 shadow-[0_20px_50px_rgba(0,0,0,0.4)] group">
+                    <iframe src="https://drive.google.com/file/d/1epFUuZE_vKFysyFRI0Z-q7iNeMY7GwyQ/preview" class="absolute inset-0 w-full h-full" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+                    <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-3xl"></div>
+                </div>
+                <div class="flex items-center justify-between mt-4 px-1">
+                    <span class="inline-flex items-center gap-2 text-teal-400 text-xs font-medium"><span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> من العيادة</span>
+                    <i data-lucide="play-circle" class="w-5 h-5 text-cream-200/40"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center text-cream-200/30 text-xs mt-4">اسحب يميناً أو يساراً لعرض المزيد</p>
+    </div>
+</section>
+
+<!-- ============================================ -->
 <!-- SECTION 5: RESULTS - Curtain Wipe Reveal -->
 <!-- ============================================ -->
 <section id="results" class="relative py-24 lg:py-32 overflow-hidden">
@@ -732,6 +789,7 @@
             <div class="space-y-6">
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الاسم بالكامل</label><input id="booking-name" type="text" placeholder="محمد أحمد" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all"></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">رقم الهاتف المحمول</label><input id="booking-phone" type="tel" placeholder="07X XXXX XXXX" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">العمر</label><input id="booking-age" type="number" min="1" max="120" inputmode="numeric" placeholder="مثال: 28" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select id="booking-service" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختر الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>غير متأكد — أحتاج استشارة</option></select></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">اليوم المفضل</label><input id="booking-date" type="text" readonly placeholder="اختر التاريخ المناسب" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/30 outline-none transition-all cursor-pointer"></div>
                 <button id="booking-submit" type="button" class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
@@ -1270,11 +1328,13 @@ lucide.createIcons();
     function sendToWhatsApp() {
         var name = (document.getElementById('booking-name') || {}).value || '';
         var phone = (document.getElementById('booking-phone') || {}).value || '';
+        var age = (document.getElementById('booking-age') || {}).value || '';
         var service = (document.getElementById('booking-service') || {}).value || '';
         var date = (document.getElementById('booking-date') || {}).value || '';
 
         name = name.trim();
         phone = phone.trim();
+        age = String(age).trim();
 
         if (!name) { alert('من فضلك أدخل الاسم بالكامل'); return; }
         if (!phone) { alert('من فضلك أدخل رقم الهاتف'); return; }
@@ -1286,6 +1346,7 @@ lucide.createIcons();
             'الاسم: ' + name,
             'رقم الهاتف: ' + phone
         ];
+        if (age)     lines.push('العمر: ' + age);
         if (service) lines.push('الخدمة المطلوبة: ' + service);
         if (date)    lines.push('التاريخ المفضل: ' + date);
         lines.push('', 'شكراً لكم.');
