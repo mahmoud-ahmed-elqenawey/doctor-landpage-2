@@ -261,7 +261,32 @@
         body.light-mode .journey-line-bg { background: rgba(13,112,112,0.18) !important; }
         body.light-mode .journey-line-fill { background: linear-gradient(270deg, #17aeb6, #0d7070, #17aeb6) !important; width: 100% !important; }
         body.light-mode .journey-dot { background: #0d7070 !important; opacity: 1 !important; }
-        /* Override GSAP so journey steps are always visible in light mode */
+        /* Override GSAP so ALL section elements are always visible in light mode */
+        body.light-mode .journey-header,
+        body.light-mode .journey-header span,
+        body.light-mode .journey-header h2,
+        body.light-mode .journey-header p,
+        body.light-mode .why-header,
+        body.light-mode .why-header span,
+        body.light-mode .why-header h2,
+        body.light-mode .why-header p,
+        body.light-mode .services-header,
+        body.light-mode .services-header span,
+        body.light-mode .services-header h2,
+        body.light-mode .services-header p,
+        body.light-mode .results-header,
+        body.light-mode .results-header span,
+        body.light-mode .results-header h2,
+        body.light-mode .results-header p,
+        body.light-mode .testimonials-header,
+        body.light-mode .testimonials-header span,
+        body.light-mode .testimonials-header h2,
+        body.light-mode .pricing-header,
+        body.light-mode .pricing-header span,
+        body.light-mode .pricing-header h2,
+        body.light-mode .booking-header,
+        body.light-mode .booking-header h2,
+        body.light-mode .booking-header p { opacity: 1 !important; transform: none !important; }
         body.light-mode .journey-step { opacity: 1 !important; transform: none !important; }
         body.light-mode .step-icon { opacity: 1 !important; transform: none !important; }
 
