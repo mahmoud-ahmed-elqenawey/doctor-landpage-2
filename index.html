@@ -541,21 +541,30 @@
             box-shadow: 0 0 8px rgba(23,174,182,0.6);
             will-change: transform;
         }
-        /* Hover state — interactive elements */
+        /* Hover state — interactive elements (refined: subtle, not a blob) */
         .cursor-ring.is-hover {
-            width: 64px; height: 64px;
-            border-color: rgba(23, 174, 182, 0.9);
-            background: rgba(23, 174, 182, 0.08);
-            box-shadow: 0 0 30px rgba(23, 174, 182, 0.35);
+            width: 28px; height: 28px;
+            border-color: rgba(23, 174, 182, 0.95);
+            border-width: 2px;
+            background: transparent;
+            box-shadow: 0 0 14px rgba(23, 174, 182, 0.35);
         }
         .cursor-dot.is-hover {
-            opacity: 0;
+            width: 10px; height: 10px;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(23, 174, 182, 0.9), 0 0 0 2px #17aeb6;
         }
-        /* Click pulse */
+        /* Click pulse — quick contraction */
         .cursor-ring.is-click {
-            width: 24px; height: 24px;
+            width: 20px; height: 20px;
             border-color: rgba(23, 174, 182, 1);
-            background: rgba(23, 174, 182, 0.25);
+            border-width: 2px;
+            background: transparent;
+        }
+        .cursor-dot.is-click {
+            width: 8px; height: 8px;
+            background: #17aeb6;
+            box-shadow: 0 0 12px rgba(23, 174, 182, 1);
         }
         /* Hide off-screen / on touch devices */
         .cursor-ring.is-hidden,
@@ -574,14 +583,28 @@
         .scroll-progress {
             position: fixed;
             top: 0; left: 0;
-            height: 3px;
+            height: 6px;
             width: 0%;
-            background: linear-gradient(90deg, #17aeb6 0%, #0d7070 100%);
+            background: linear-gradient(90deg, #17aeb6 0%, #0d7070 60%, #17aeb6 100%);
+            background-size: 200% 100%;
             z-index: 100001;
-            transition: width 0.05s linear;
-            box-shadow: 0 0 10px rgba(23, 174, 182, 0.5);
+            transition: width 0.06s linear;
+            box-shadow: 0 0 18px rgba(23, 174, 182, 0.65), 0 0 4px rgba(23, 174, 182, 0.9);
+            animation: scroll-progress-shimmer 4s linear infinite;
         }
-        body.light-mode .scroll-progress { background: linear-gradient(90deg, #0d7070 0%, #17aeb6 100%); box-shadow: 0 0 10px rgba(13, 112, 112, 0.4); }
+        .scroll-progress::after {
+            content: '';
+            position: absolute;
+            right: 0; top: 0;
+            width: 32px; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7));
+            pointer-events: none;
+        }
+        @keyframes scroll-progress-shimmer {
+            0%   { background-position: 0% 0%; }
+            100% { background-position: -200% 0%; }
+        }
+        body.light-mode .scroll-progress { background: linear-gradient(90deg, #0d7070 0%, #17aeb6 60%, #0d7070 100%); background-size: 200% 100%; box-shadow: 0 0 16px rgba(13, 112, 112, 0.45), 0 0 4px rgba(13, 112, 112, 0.7); }
 
         /* ─────────────────────────────────────────────
            MAGNETIC BUTTONS
@@ -595,6 +618,209 @@
 
         /* Subtle ripple/shine on cards */
         .micro-tilt { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease; transform-style: preserve-3d; will-change: transform; }
+
+        /* ─────────────────────────────────────────────
+           SECTION SEAM — editorial pulse-trace divider
+           A thin gradient hairline + asymmetric numbered
+           badge + traveling pulse + bracket marks.
+           Distinctive, medical-editorial, not generic waves.
+           ───────────────────────────────────────────── */
+        .section-seam {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110px;
+            margin-top: -55px;
+            pointer-events: none;
+            z-index: 4;
+            overflow: visible;
+            direction: ltr;
+        }
+        @media (max-width: 768px) { .section-seam { height: 80px; margin-top: -40px; } }
+
+        /* Center hairline (gradient fade at edges, brightest mid-section) */
+        .section-seam::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 6%; right: 6%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(23,174,182,0.06) 6%,
+                rgba(23,174,182,0.45) 35%,
+                rgba(23,174,182,0.55) 50%,
+                rgba(23,174,182,0.45) 65%,
+                rgba(23,174,182,0.06) 94%,
+                transparent 100%);
+        }
+
+        /* Traveling pulse — sweeps across like an EKG signal */
+        .section-seam::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 6%;
+            width: 90px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, rgba(23,174,182,1) 50%, transparent 100%);
+            transform: translateY(-50%);
+            box-shadow: 0 0 16px rgba(23,174,182,0.85);
+            animation: seam-pulse-trace 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+        }
+        @keyframes seam-pulse-trace {
+            0%   { left: 6%;   opacity: 0; }
+            8%   { opacity: 1; }
+            92%  { opacity: 1; }
+            100% { left: calc(94% - 90px); opacity: 0; }
+        }
+
+        /* Decorative diamond brackets at line ends */
+        .section-seam .seam-bracket {
+            position: absolute;
+            top: 50%;
+            width: 7px; height: 7px;
+            border: 1px solid rgba(23,174,182,0.5);
+            background: rgba(23,174,182,0.08);
+            transform: translateY(-50%) rotate(45deg);
+        }
+        .section-seam .seam-bracket.left  { left: 5.5%; }
+        .section-seam .seam-bracket.right { right: 5.5%; }
+        .section-seam .seam-bracket::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border: 1px solid rgba(23,174,182,0.18);
+        }
+
+        /* Asymmetric editorial badge — section number */
+        .section-seam .seam-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 9px 22px;
+            background: rgba(10, 22, 40, 0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(23,174,182,0.22);
+            border-radius: 999px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 4px rgba(10,22,40,0.4);
+        }
+        body.light-mode .section-seam .seam-badge {
+            background: rgba(244, 248, 248, 0.88);
+            border-color: rgba(13, 112, 112, 0.28);
+            box-shadow: 0 8px 32px rgba(13,112,112,0.12), 0 0 0 4px rgba(244,248,248,0.6);
+        }
+
+        .section-seam .seam-badge .seam-tick {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #17aeb6;
+            box-shadow: 0 0 10px rgba(23,174,182,0.95), 0 0 0 3px rgba(23,174,182,0.18);
+            animation: seam-tick-blink 2.4s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes seam-tick-blink {
+            0%, 100% { opacity: 0.55; transform: scale(0.85); box-shadow: 0 0 6px rgba(23,174,182,0.6), 0 0 0 2px rgba(23,174,182,0.12); }
+            50%      { opacity: 1;    transform: scale(1.15); box-shadow: 0 0 14px rgba(23,174,182,1),    0 0 0 4px rgba(23,174,182,0.22); }
+        }
+
+        .section-seam .seam-badge .seam-label {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.36em;
+            text-transform: uppercase;
+            color: rgba(23,174,182,0.75);
+            font-weight: 600;
+            line-height: 1;
+        }
+        body.light-mode .section-seam .seam-badge .seam-label { color: rgba(13,112,112,0.85); }
+
+        .section-seam .seam-badge .seam-divider {
+            width: 1px;
+            height: 16px;
+            background: linear-gradient(180deg, transparent, rgba(23,174,182,0.45), transparent);
+        }
+
+        .section-seam .seam-badge .seam-num {
+            font-family: 'Playfair Display', 'Tajawal', serif;
+            font-size: 22px;
+            font-style: italic;
+            font-weight: 500;
+            color: #17aeb6;
+            line-height: 1;
+            letter-spacing: 0.02em;
+        }
+        body.light-mode .section-seam .seam-badge .seam-num { color: #0d7070; }
+
+        /* Tiny tally marks flanking the badge — like measurement ticks */
+        .section-seam .seam-badge::before,
+        .section-seam .seam-badge::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 1px;
+            background: rgba(23,174,182,0.5);
+            transform: translateY(-50%);
+        }
+        .section-seam .seam-badge::before { right: 100%; margin-right: 14px; }
+        .section-seam .seam-badge::after  { left: 100%;  margin-left: 14px; }
+        body.light-mode .section-seam .seam-badge::before,
+        body.light-mode .section-seam .seam-badge::after {
+            background: rgba(13,112,112,0.55);
+        }
+
+        @media (max-width: 768px) {
+            .section-seam .seam-badge { padding: 7px 16px; gap: 10px; }
+            .section-seam .seam-badge .seam-num   { font-size: 18px; }
+            .section-seam .seam-badge .seam-label { font-size: 8px; letter-spacing: 0.3em; }
+            .section-seam .seam-badge::before,
+            .section-seam .seam-badge::after { width: 8px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .section-seam::after,
+            .section-seam .seam-badge .seam-tick { animation: none !important; }
+        }
+
+        /* Floating parallax accents — gentle drifting orbs */
+        .parallax-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.35;
+            pointer-events: none;
+            will-change: transform;
+            z-index: 0;
+        }
+        .parallax-orb.teal { background: radial-gradient(circle, rgba(23,174,182,0.6) 0%, rgba(23,174,182,0) 70%); }
+        .parallax-orb.deep { background: radial-gradient(circle, rgba(13,112,112,0.5) 0%, rgba(13,112,112,0) 70%); }
+        body.light-mode .parallax-orb { opacity: 0.22; }
+        @keyframes orb-drift-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%      { transform: translate(40px, -30px) scale(1.08); }
+            66%      { transform: translate(-25px, 25px) scale(0.95); }
+        }
+        @keyframes orb-drift-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50%      { transform: translate(-50px, 40px) scale(1.12); }
+        }
+        @keyframes orb-drift-3 {
+            0%, 100% { transform: translate(0, 0) scale(1.05); }
+            40%      { transform: translate(30px, 30px) scale(0.92); }
+            70%      { transform: translate(-30px, -20px) scale(1.1); }
+        }
+        .parallax-orb.drift-1 { animation: orb-drift-1 18s ease-in-out infinite; }
+        .parallax-orb.drift-2 { animation: orb-drift-2 22s ease-in-out infinite; }
+        .parallax-orb.drift-3 { animation: orb-drift-3 26s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) {
+            .parallax-orb { animation: none !important; }
+        }
     </style>
 </head>
 <body class="bg-navy-900 text-cream-50 grain light-mode">
@@ -711,6 +937,18 @@
 <!-- SECTION 2: WHY CHOOSE US - 3D Card Flip Reveal -->
 <!-- ============================================ -->
 <section id="why-us" class="relative py-24 bg-navy-800/50 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">Why Us</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">01</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
+    <div class="parallax-orb teal drift-1" style="top:10%; right:-80px; width:340px; height:340px;"></div>
+    <div class="parallax-orb deep drift-2" style="bottom:-100px; left:-60px; width:280px; height:280px;"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-transparent to-navy-900"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 why-header">
@@ -748,6 +986,16 @@
 <!-- SECTION 3: SERVICES - Staggered Scale + Rotation Reveal -->
 <!-- ============================================ -->
 <section id="services" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">Services</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">02</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 services-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">خدماتنا</span>
@@ -819,6 +1067,18 @@
 <!-- SECTION 4: DOCTOR - Split Screen Parallax Reveal -->
 <!-- ============================================ -->
 <section id="doctor" class="relative py-24 lg:py-32 bg-navy-800/30 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">The Doctor</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">03</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
+    <div class="parallax-orb teal drift-3" style="top:20%; left:-100px; width:380px; height:380px;"></div>
+    <div class="parallax-orb deep drift-1" style="bottom:10%; right:-80px; width:300px; height:300px;"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div class="doctor-image">
@@ -904,6 +1164,16 @@
 <!-- SECTION 5: RESULTS - Curtain Wipe Reveal -->
 <!-- ============================================ -->
 <section id="results" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">Results</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">04</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 results-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">نتائج حقيقية</span>
@@ -1037,6 +1307,17 @@
 <!-- SECTION 7: JOURNEY - Timeline Drawing + Sequential Steps -->
 <!-- ============================================ -->
 <section id="journey" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">Journey</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">05</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
+    <div class="parallax-orb teal drift-2" style="top:30%; right:5%; width:260px; height:260px;"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 journey-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">رحلتك معنا</span>
@@ -1092,6 +1373,17 @@
 <!-- SECTION 8: PRICING - Elastic Bounce Cards -->
 <!-- ============================================ -->
 <section id="pricing" class="relative py-24 lg:py-32 bg-navy-800/30 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">Pricing</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">06</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
+    <div class="parallax-orb deep drift-3" style="top:40%; left:8%; width:240px; height:240px;"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 pricing-header">
             <span class="text-teal-400 text-sm font-medium tracking-wider">يسّرناها لك</span>
@@ -1110,6 +1402,18 @@
 <!-- SECTION 9: BOOKING - Form Morph + Sliding Fields -->
 <!-- ============================================ -->
 <section id="booking" class="relative py-24 lg:py-32 overflow-hidden">
+    <div class="section-seam" aria-hidden="true">
+        <span class="seam-bracket left"></span>
+        <div class="seam-badge">
+            <span class="seam-tick"></span>
+            <span class="seam-label">Book Now</span>
+            <span class="seam-divider"></span>
+            <span class="seam-num">07</span>
+        </div>
+        <span class="seam-bracket right"></span>
+    </div>
+    <div class="parallax-orb teal drift-1" style="top:15%; right:-60px; width:320px; height:320px;"></div>
+    <div class="parallax-orb deep drift-2" style="bottom:5%; left:-80px; width:280px; height:280px;"></div>
     <div class="absolute inset-0 pointer-events-none"><div class="booking-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-[150px]"></div></div>
     <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 booking-header">
@@ -1208,9 +1512,11 @@ window.scrollTo(0, 0);
     });
     document.addEventListener('mousedown', function () {
         ring.classList.add('is-click');
+        dot.classList.add('is-click');
     });
     document.addEventListener('mouseup', function () {
         ring.classList.remove('is-click');
+        dot.classList.remove('is-click');
     });
 
     // Hover-state delegation — interactive elements
