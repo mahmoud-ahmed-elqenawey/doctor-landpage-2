@@ -951,6 +951,9 @@ history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Replay animations every time a section enters the viewport
+ScrollTrigger.defaults({ toggleActions: 'restart none none reset' });
 window.addEventListener('load', function() {
 
 // ========== HEADER ==========
