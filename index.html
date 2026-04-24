@@ -500,9 +500,109 @@
                 grid-template-columns: 1fr !important;
             }
         }
+        /* ─────────────────────────────────────────────
+           CURSOR + MICRO-INTERACTIONS
+           ───────────────────────────────────────────── */
+        /* Hide native cursor on devices with fine pointer */
+        @media (hover: hover) and (pointer: fine) {
+            html, body, a, button, input, textarea, select, label, [data-magnetic], [role="button"] { cursor: none !important; }
+        }
+
+        /* Outer ring */
+        .cursor-ring {
+            position: fixed;
+            top: 0; left: 0;
+            width: 38px; height: 38px;
+            border: 1.5px solid rgba(23, 174, 182, 0.55);
+            border-radius: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            pointer-events: none;
+            z-index: 99999;
+            transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                        height 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.28s ease,
+                        background 0.28s ease,
+                        opacity 0.25s ease;
+            mix-blend-mode: normal;
+            will-change: transform, width, height;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 0 18px rgba(23, 174, 182, 0.18);
+        }
+        /* Inner dot */
+        .cursor-dot {
+            position: fixed;
+            top: 0; left: 0;
+            width: 6px; height: 6px;
+            background: #17aeb6;
+            border-radius: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            pointer-events: none;
+            z-index: 100000;
+            box-shadow: 0 0 8px rgba(23,174,182,0.6);
+            will-change: transform;
+        }
+        /* Hover state — interactive elements */
+        .cursor-ring.is-hover {
+            width: 64px; height: 64px;
+            border-color: rgba(23, 174, 182, 0.9);
+            background: rgba(23, 174, 182, 0.08);
+            box-shadow: 0 0 30px rgba(23, 174, 182, 0.35);
+        }
+        .cursor-dot.is-hover {
+            opacity: 0;
+        }
+        /* Click pulse */
+        .cursor-ring.is-click {
+            width: 24px; height: 24px;
+            border-color: rgba(23, 174, 182, 1);
+            background: rgba(23, 174, 182, 0.25);
+        }
+        /* Hide off-screen / on touch devices */
+        .cursor-ring.is-hidden,
+        .cursor-dot.is-hidden { opacity: 0; }
+        @media (hover: none), (pointer: coarse) {
+            .cursor-ring, .cursor-dot { display: none !important; }
+        }
+        /* Light mode tint */
+        body.light-mode .cursor-ring { border-color: rgba(13, 112, 112, 0.65); box-shadow: 0 0 16px rgba(13, 112, 112, 0.2); }
+        body.light-mode .cursor-ring.is-hover { background: rgba(13, 112, 112, 0.1); border-color: rgba(13, 112, 112, 0.95); }
+        body.light-mode .cursor-dot { background: #0d7070; box-shadow: 0 0 8px rgba(13, 112, 112, 0.6); }
+
+        /* ─────────────────────────────────────────────
+           PAGE SCROLL PROGRESS BAR
+           ───────────────────────────────────────────── */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, #17aeb6 0%, #0d7070 100%);
+            z-index: 100001;
+            transition: width 0.05s linear;
+            box-shadow: 0 0 10px rgba(23, 174, 182, 0.5);
+        }
+        body.light-mode .scroll-progress { background: linear-gradient(90deg, #0d7070 0%, #17aeb6 100%); box-shadow: 0 0 10px rgba(13, 112, 112, 0.4); }
+
+        /* ─────────────────────────────────────────────
+           MAGNETIC BUTTONS
+           ───────────────────────────────────────────── */
+        [data-magnetic] {
+            display: inline-block;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
+        [data-magnetic] > * { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); pointer-events: none; }
+
+        /* Subtle ripple/shine on cards */
+        .micro-tilt { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease; transform-style: preserve-3d; will-change: transform; }
     </style>
 </head>
 <body class="bg-navy-900 text-cream-50 grain light-mode">
+<!-- Page scroll progress -->
+<div class="scroll-progress" id="scroll-progress"></div>
+<!-- Custom cursor -->
+<div class="cursor-ring is-hidden" id="cursor-ring"></div>
+<div class="cursor-dot is-hidden" id="cursor-dot"></div>
 <script>
     // Prevent flash of wrong theme — apply saved theme immediately
     (function () {
@@ -533,7 +633,7 @@
                     <svg class="sun-icon w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke-width="2"/></svg>
                     <svg class="moon-icon w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
                 </button>
-                <a href="#booking" class="btn-teal px-6 py-2.5 rounded-full text-navy-900 font-bold text-sm hidden sm:inline-block">احجز موعدك الآن</a>
+                <a href="#booking" data-magnetic class="btn-teal px-6 py-2.5 rounded-full text-navy-900 font-bold text-sm hidden sm:inline-block">احجز موعدك الآن</a>
             </div>
             <button id="mobile-menu-btn" class="lg:hidden text-cream-100">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -572,7 +672,7 @@
                 <h1 class="hero-title font-arabic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">ابتسامتك<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-300 via-teal-400 to-teal-300" style="display:inline-block; padding-bottom:0.15em; padding-top:0.05em;">تستحق الأفضل</span></h1>
                 <p class="hero-subtitle text-lg sm:text-xl text-cream-200/60 leading-relaxed max-w-xl mx-auto lg:mx-0 lg:mr-0 mb-10">لن نعالج أسنانك فحسب — بل سنغيّر نظرتك لنفسك.<br>خبرة سنوات، تقنيات حديثة، ونتائج تتحدث عن نفسها.</p>
                 <div class="hero-cta flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                    <a href="#booking" class="btn-teal btn-teal-pulse px-10 py-4 rounded-full text-navy-900 font-bold text-lg w-full sm:w-auto text-center">احجز موعدك المجاني<span class="block text-xs font-normal opacity-70 mt-0.5">سنتواصل معك خلال ساعة</span></a>
+                    <a href="#booking" data-magnetic class="btn-teal btn-teal-pulse px-10 py-4 rounded-full text-navy-900 font-bold text-lg w-full sm:w-auto text-center">احجز موعدك المجاني<span class="block text-xs font-normal opacity-70 mt-0.5">سنتواصل معك خلال ساعة</span></a>
                     <a href="#services" class="flex items-center gap-2 text-cream-200/60 hover:text-teal-400 transition-colors group">
                         <span class="w-12 h-12 rounded-full border border-cream-200/20 flex items-center justify-center group-hover:border-teal-400/50 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
                         <span class="text-sm font-medium">اعرف المزيد</span>
@@ -1024,7 +1124,7 @@
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">تاريخ الميلاد</label><input id="booking-birthdate" type="text" readonly placeholder="اختر تاريخ ميلادك" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/30 outline-none transition-all cursor-pointer"></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select id="booking-service" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختر الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>غير متأكد — أحتاج استشارة</option></select></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">اليوم المفضل</label><input id="booking-date" type="text" readonly placeholder="اختر التاريخ المناسب" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/30 outline-none transition-all cursor-pointer"></div>
-                <button id="booking-submit" type="button" class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
+                <button id="booking-submit" data-magnetic type="button" class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
                 <div class="form-field flex items-center justify-center gap-6 pt-4"><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><span>بياناتك آمنة 100%</span></div><div class="flex items-center gap-2 text-cream-200/30 text-xs"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span>سنرد خلال ساعة</span></div></div>
             </div>
         </div>
@@ -1062,6 +1162,116 @@
 // Always start at top on refresh
 history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
+
+/* =====================================================
+   CURSOR & MICRO-INTERACTIONS
+   ===================================================== */
+(function () {
+    var isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!isFinePointer) return;
+
+    var ring = document.getElementById('cursor-ring');
+    var dot  = document.getElementById('cursor-dot');
+    if (!ring || !dot) return;
+
+    var mouseX = window.innerWidth / 2,
+        mouseY = window.innerHeight / 2;
+    var ringX = mouseX, ringY = mouseY;
+    var dotX  = mouseX, dotY  = mouseY;
+    var ringEase = 0.18; // smooth follow
+    var dotEase  = 0.55; // tighter follow
+
+    function loop() {
+        ringX += (mouseX - ringX) * ringEase;
+        ringY += (mouseY - ringY) * ringEase;
+        dotX  += (mouseX - dotX)  * dotEase;
+        dotY  += (mouseY - dotY)  * dotEase;
+        ring.style.transform = 'translate3d(' + ringX + 'px,' + ringY + 'px,0) translate(-50%,-50%)';
+        dot.style.transform  = 'translate3d(' + dotX  + 'px,' + dotY  + 'px,0) translate(-50%,-50%)';
+        requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    document.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        ring.classList.remove('is-hidden');
+        dot.classList.remove('is-hidden');
+    }, { passive: true });
+    document.addEventListener('mouseleave', function () {
+        ring.classList.add('is-hidden');
+        dot.classList.add('is-hidden');
+    });
+    document.addEventListener('mouseenter', function () {
+        ring.classList.remove('is-hidden');
+        dot.classList.remove('is-hidden');
+    });
+    document.addEventListener('mousedown', function () {
+        ring.classList.add('is-click');
+    });
+    document.addEventListener('mouseup', function () {
+        ring.classList.remove('is-click');
+    });
+
+    // Hover-state delegation — interactive elements
+    var hoverSelector = 'a, button, input, textarea, select, label, [data-magnetic], [role="button"], .result-card, .testimonial-card, .why-card, .service-card, .doctor-card';
+    document.addEventListener('mouseover', function (e) {
+        if (e.target.closest && e.target.closest(hoverSelector)) {
+            ring.classList.add('is-hover');
+            dot.classList.add('is-hover');
+        }
+    });
+    document.addEventListener('mouseout', function (e) {
+        if (e.target.closest && e.target.closest(hoverSelector)) {
+            ring.classList.remove('is-hover');
+            dot.classList.remove('is-hover');
+        }
+    });
+
+    /* ===== MAGNETIC BUTTONS ===== */
+    var magnets = document.querySelectorAll('[data-magnetic]');
+    magnets.forEach(function (el) {
+        var strength = parseFloat(el.getAttribute('data-magnetic-strength')) || 0.35;
+        el.addEventListener('mousemove', function (e) {
+            var rect = el.getBoundingClientRect();
+            var relX = e.clientX - rect.left - rect.width / 2;
+            var relY = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = 'translate3d(' + (relX * strength) + 'px,' + (relY * strength) + 'px,0)';
+            var inner = el.firstElementChild;
+            if (inner && inner.tagName !== 'svg') {
+                inner.style.transform = 'translate3d(' + (relX * strength * 0.6) + 'px,' + (relY * strength * 0.6) + 'px,0)';
+            }
+        });
+        el.addEventListener('mouseleave', function () {
+            el.style.transform = '';
+            var inner = el.firstElementChild;
+            if (inner) inner.style.transform = '';
+        });
+    });
+})();
+
+/* =====================================================
+   PAGE SCROLL PROGRESS BAR
+   ===================================================== */
+(function () {
+    var bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    var ticking = false;
+    function update() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = pct + '%';
+        ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }, { passive: true });
+    update();
+})();
 
 gsap.registerPlugin(ScrollTrigger);
 
