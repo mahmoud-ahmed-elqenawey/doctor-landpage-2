@@ -907,7 +907,7 @@
             <div class="space-y-6">
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الاسم بالكامل</label><input id="booking-name" type="text" placeholder="محمد أحمد" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all"></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">رقم الهاتف المحمول</label><input id="booking-phone" type="tel" placeholder="07X XXXX XXXX" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
-                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">العمر</label><input id="booking-age" type="number" min="1" max="120" inputmode="numeric" placeholder="مثال: 28" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/20 outline-none transition-all" dir="ltr"></div>
+                <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">تاريخ الميلاد</label><input id="booking-birthdate" type="text" readonly placeholder="اختر تاريخ ميلادك" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/30 outline-none transition-all cursor-pointer"></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">الخدمة المطلوبة</label><select id="booking-service" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-200/60 outline-none transition-all appearance-none"><option value="">اختر الخدمة</option><option>Hollywood Smile</option><option>زراعة أسنان</option><option>تقويم أسنان</option><option>تبييض أسنان</option><option>علاج عصب</option><option>كشف عام</option><option>غير متأكد — أحتاج استشارة</option></select></div>
                 <div class="form-field"><label class="block text-cream-200/60 text-sm mb-2 font-medium">اليوم المفضل</label><input id="booking-date" type="text" readonly placeholder="اختر التاريخ المناسب" class="form-input w-full bg-navy-900/60 border border-teal-400/10 rounded-xl px-5 py-4 text-cream-100 placeholder-cream-200/30 outline-none transition-all cursor-pointer"></div>
                 <button id="booking-submit" type="button" class="form-field booking-btn btn-teal w-full py-5 rounded-xl text-navy-900 font-bold text-lg mt-4">احجز موعدك المجاني الآن<span class="block text-xs font-normal opacity-70 mt-1">الاستشارة الأولى مجاناً — بدون أي التزام</span></button>
@@ -1429,25 +1429,44 @@ lucide.createIcons();
     var WHATSAPP_NUMBER = '962790083393';
 
     function initFlatpickr() {
-        var el = document.getElementById('booking-date');
-        if (!el || typeof flatpickr === 'undefined') return;
-        var today = new Date();
-        flatpickr(el, {
-            locale: (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.ar) ? flatpickr.l10ns.ar : 'default',
-            minDate: 'today',
-            maxDate: new Date(today.getFullYear(), today.getMonth() + 2, today.getDate()),
-            dateFormat: 'Y-m-d',
-            altInput: true,
-            altFormat: 'l، j F Y',
-            disableMobile: true,
-            position: 'auto'
-        });
+        if (typeof flatpickr === 'undefined') return;
+        var arLocale = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.ar) ? flatpickr.l10ns.ar : 'default';
+
+        var dateEl = document.getElementById('booking-date');
+        if (dateEl) {
+            var today = new Date();
+            flatpickr(dateEl, {
+                locale: arLocale,
+                minDate: 'today',
+                maxDate: new Date(today.getFullYear(), today.getMonth() + 2, today.getDate()),
+                dateFormat: 'Y-m-d',
+                altInput: true,
+                altFormat: 'l، j F Y',
+                disableMobile: true,
+                position: 'auto'
+            });
+        }
+
+        var birthEl = document.getElementById('booking-birthdate');
+        if (birthEl) {
+            flatpickr(birthEl, {
+                locale: arLocale,
+                maxDate: 'today',
+                minDate: '1920-01-01',
+                defaultDate: '1990-01-01',
+                dateFormat: 'Y-m-d',
+                altInput: true,
+                altFormat: 'j F Y',
+                disableMobile: true,
+                position: 'auto'
+            });
+        }
     }
 
     function sendToWhatsApp() {
         var name = (document.getElementById('booking-name') || {}).value || '';
         var phone = (document.getElementById('booking-phone') || {}).value || '';
-        var age = (document.getElementById('booking-age') || {}).value || '';
+        var birthdate = (document.getElementById('booking-birthdate') || {}).value || '';
         var service = (document.getElementById('booking-service') || {}).value || '';
         var date = (document.getElementById('booking-date') || {}).value || '';
 
@@ -1465,7 +1484,7 @@ lucide.createIcons();
             'الاسم: ' + name,
             'رقم الهاتف: ' + phone
         ];
-        if (age)     lines.push('العمر: ' + age);
+        if (birthdate) lines.push('تاريخ الميلاد: ' + birthdate);
         if (service) lines.push('الخدمة المطلوبة: ' + service);
         if (date)    lines.push('التاريخ المفضل: ' + date);
         lines.push('', 'شكراً لكم.');
