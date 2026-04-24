@@ -475,6 +475,10 @@
         section { position: relative; }
         section::before { content: ''; position: absolute; top: -80px; left: 0; right: 0; height: 80px; pointer-events: none; }
 
+        /* Header height variable used to offset hero bg below the navbar */
+        :root { --header-h: 80px; }
+        @media (max-width: 767px) { :root { --header-h: 72px; } }
+
         /* ── MOBILE FIXES ── */
         @media (max-width: 767px) {
             /* Hero: disable fixed attachment (broken on iOS) */
@@ -714,9 +718,9 @@
 <!-- ============================================ -->
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
-        <div class="hero-bg-layer absolute inset-0 w-full h-full" style="background: url('hero-bg.jpg') center/cover no-repeat fixed;"></div>
-        <div class="absolute inset-0 bg-gradient-to-l from-navy-900/90 via-navy-900/55 to-navy-900/20"></div>
-        <div class="absolute inset-0 bg-navy-900/20"></div>
+        <div class="hero-bg-layer absolute inset-x-0 w-full" style="top: var(--header-h, 80px); bottom: 0; background: url('hero-bg.jpg') center/cover no-repeat;"></div>
+        <div class="absolute inset-x-0 bg-gradient-to-l from-navy-900/90 via-navy-900/55 to-navy-900/20" style="top: var(--header-h, 80px); bottom: 0;"></div>
+        <div class="absolute inset-x-0 bg-navy-900/20" style="top: var(--header-h, 80px); bottom: 0;"></div>
         <div class="hero-blob-1 absolute top-0 left-0 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-[120px]"></div>
         <div class="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-400/3 rounded-full blur-[100px]"></div>
     </div>
