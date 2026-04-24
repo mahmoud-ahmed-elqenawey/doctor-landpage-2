@@ -433,7 +433,14 @@
         }
     </style>
 </head>
-<body class="bg-navy-900 text-cream-50 grain">
+<body class="bg-navy-900 text-cream-50 grain light-mode">
+<script>
+    // Prevent flash of wrong theme — apply saved theme immediately
+    (function () {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark') document.body.classList.remove('light-mode');
+    })();
+</script>
 
 <!-- ============================================ -->
 <!-- HEADER -->
@@ -983,13 +990,11 @@ function setTheme(mode) {
     localStorage.setItem('theme', mode);
 }
 
-// Apply saved theme
-if (savedTheme === 'light') {
-    setTheme('light');
+// Apply saved theme — default is LIGHT
+if (savedTheme === 'dark') {
+    setTheme('dark');
 } else {
-    // Show sun icon (means: click to switch to light)
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'block';
+    setTheme('light');
 }
 
 themeToggle.addEventListener('click', () => {
