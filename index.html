@@ -415,6 +415,9 @@
         .flatpickr-current-month .flatpickr-monthDropdown-months { background: rgba(23,174,182,0.10) !important; border: 1px solid rgba(23,174,182,0.25) !important; border-radius: 10px !important; padding: 6px 12px !important; color: #f2f6ff !important; font-weight: 600 !important; font-family: 'Tajawal', sans-serif !important; font-size: 14px !important; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, #17aeb6 50%), linear-gradient(135deg, #17aeb6 50%, transparent 50%) !important; background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50% !important; background-size: 5px 5px, 5px 5px !important; background-repeat: no-repeat !important; padding-left: 28px !important; }
         .flatpickr-current-month .flatpickr-monthDropdown-months:hover { background-color: rgba(23,174,182,0.18) !important; border-color: rgba(23,174,182,0.5) !important; }
         .flatpickr-monthDropdown-month { background: #0a1929 !important; color: #f2f6ff !important; font-family: 'Tajawal', sans-serif !important; padding: 6px 10px !important; }
+        .flatpickr-current-month .flatpickr-yearDropdown-years { background: rgba(23,174,182,0.10) !important; border: 1px solid rgba(23,174,182,0.25) !important; border-radius: 10px !important; padding: 6px 12px !important; color: #f2f6ff !important; font-weight: 600 !important; font-family: 'Tajawal', sans-serif !important; font-size: 14px !important; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; min-width: 86px; background-image: linear-gradient(45deg, transparent 50%, #17aeb6 50%), linear-gradient(135deg, #17aeb6 50%, transparent 50%) !important; background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50% !important; background-size: 5px 5px, 5px 5px !important; background-repeat: no-repeat !important; padding-left: 28px !important; }
+        .flatpickr-current-month .flatpickr-yearDropdown-years:hover { background-color: rgba(23,174,182,0.18) !important; border-color: rgba(23,174,182,0.5) !important; }
+        .flatpickr-yearDropdown-year { background: #0a1929 !important; color: #f2f6ff !important; font-family: 'Tajawal', sans-serif !important; }
         .flatpickr-prev-month, .flatpickr-next-month { color: #17aeb6 !important; fill: #17aeb6 !important; height: 36px !important; width: 36px !important; padding: 8px !important; border-radius: 10px !important; transition: background 0.2s; }
         .flatpickr-prev-month:hover, .flatpickr-next-month:hover { background: rgba(23,174,182,0.12) !important; }
         .flatpickr-prev-month svg, .flatpickr-next-month svg { fill: #17aeb6 !important; width: 14px; height: 14px; }
@@ -435,6 +438,9 @@
         body.light-mode .flatpickr-current-month .flatpickr-monthDropdown-months { background-color: #eaf4f4 !important; border-color: rgba(13,112,112,0.15) !important; color: #1a2e2e !important; }
         body.light-mode .flatpickr-current-month .flatpickr-monthDropdown-months:hover { background-color: #d8ebeb !important; border-color: rgba(13,112,112,0.35) !important; }
         body.light-mode .flatpickr-monthDropdown-month { background: #ffffff !important; color: #1a2e2e !important; }
+        body.light-mode .flatpickr-current-month .flatpickr-yearDropdown-years { background-color: #eaf4f4 !important; border-color: rgba(13,112,112,0.15) !important; color: #1a2e2e !important; }
+        body.light-mode .flatpickr-current-month .flatpickr-yearDropdown-years:hover { background-color: #d8ebeb !important; border-color: rgba(13,112,112,0.35) !important; }
+        body.light-mode .flatpickr-yearDropdown-year { background: #ffffff !important; color: #1a2e2e !important; }
         body.light-mode .flatpickr-weekdays { border-top-color: rgba(13,112,112,0.1); }
         body.light-mode .flatpickr-weekday { color: #5a7a7a !important; }
         body.light-mode .flatpickr-day { color: #3a5555 !important; }
@@ -1823,6 +1829,51 @@ lucide.createIcons();
 (function () {
     var WHATSAPP_NUMBER = '962790083393';
 
+    function attachYearDropdown(instance, options) {
+        if (!instance || !instance.currentYearElement) return;
+
+        var yearInput = instance.currentYearElement;
+        var wrapper = yearInput.parentNode;
+        if (!wrapper || wrapper.dataset.yearDropdownAttached === 'true') return;
+
+        var minYear = options.minYear;
+        var maxYear = options.maxYear;
+        var select = document.createElement('select');
+        select.className = 'flatpickr-yearDropdown-years';
+        select.setAttribute('aria-label', 'اختيار السنة');
+
+        function addYearOption(year) {
+            var option = document.createElement('option');
+            option.className = 'flatpickr-yearDropdown-year';
+            option.value = String(year);
+            option.textContent = String(year);
+            select.appendChild(option);
+        }
+
+        if (options.descending) {
+            for (var year = maxYear; year >= minYear; year--) addYearOption(year);
+        } else {
+            for (var year = minYear; year <= maxYear; year++) addYearOption(year);
+        }
+
+        function syncYear() {
+            select.value = String(instance.currentYear || yearInput.value);
+        }
+
+        select.addEventListener('change', function () {
+            instance.changeYear(parseInt(select.value, 10));
+        });
+
+        wrapper.dataset.yearDropdownAttached = 'true';
+        wrapper.style.display = 'none';
+        wrapper.parentNode.insertBefore(select, wrapper.nextSibling);
+        instance.config.onYearChange = instance.config.onYearChange || [];
+        instance.config.onMonthChange = instance.config.onMonthChange || [];
+        instance.config.onYearChange.push(syncYear);
+        instance.config.onMonthChange.push(syncYear);
+        syncYear();
+    }
+
     function initFlatpickr() {
         if (typeof flatpickr === 'undefined') return;
         var arLocale = (typeof flatpickr.l10ns !== 'undefined' && flatpickr.l10ns.ar) ? flatpickr.l10ns.ar : 'default';
@@ -1830,20 +1881,30 @@ lucide.createIcons();
         var dateEl = document.getElementById('booking-date');
         if (dateEl) {
             var today = new Date();
+            var maxBookingDate = new Date(today.getFullYear(), today.getMonth() + 2, today.getDate());
             flatpickr(dateEl, {
                 locale: arLocale,
                 minDate: 'today',
-                maxDate: new Date(today.getFullYear(), today.getMonth() + 2, today.getDate()),
+                maxDate: maxBookingDate,
                 dateFormat: 'Y-m-d',
                 altInput: true,
                 altFormat: 'l، j F Y',
                 disableMobile: true,
-                position: 'auto'
+                position: 'auto',
+                monthSelectorType: 'dropdown',
+                onReady: [function (_, __, instance) {
+                    attachYearDropdown(instance, {
+                        minYear: today.getFullYear(),
+                        maxYear: maxBookingDate.getFullYear(),
+                        descending: false
+                    });
+                }]
             });
         }
 
         var birthEl = document.getElementById('booking-birthdate');
         if (birthEl) {
+            var currentYear = new Date().getFullYear();
             flatpickr(birthEl, {
                 locale: arLocale,
                 maxDate: 'today',
@@ -1855,7 +1916,13 @@ lucide.createIcons();
                 disableMobile: true,
                 position: 'auto',
                 monthSelectorType: 'dropdown',
-                yearSelectorType: 'dropdown'
+                onReady: [function (_, __, instance) {
+                    attachYearDropdown(instance, {
+                        minYear: 1920,
+                        maxYear: currentYear,
+                        descending: true
+                    });
+                }]
             });
         }
     }
