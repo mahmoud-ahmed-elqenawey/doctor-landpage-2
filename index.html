@@ -415,9 +415,15 @@
         .flatpickr-current-month .flatpickr-monthDropdown-months { background: rgba(23,174,182,0.10) !important; border: 1px solid rgba(23,174,182,0.25) !important; border-radius: 10px !important; padding: 6px 12px !important; color: #f2f6ff !important; font-weight: 600 !important; font-family: 'Tajawal', sans-serif !important; font-size: 14px !important; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, #17aeb6 50%), linear-gradient(135deg, #17aeb6 50%, transparent 50%) !important; background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50% !important; background-size: 5px 5px, 5px 5px !important; background-repeat: no-repeat !important; padding-left: 28px !important; }
         .flatpickr-current-month .flatpickr-monthDropdown-months:hover { background-color: rgba(23,174,182,0.18) !important; border-color: rgba(23,174,182,0.5) !important; }
         .flatpickr-monthDropdown-month { background: #0a1929 !important; color: #f2f6ff !important; font-family: 'Tajawal', sans-serif !important; padding: 6px 10px !important; }
-        .flatpickr-current-month .flatpickr-yearDropdown-years { background: rgba(23,174,182,0.10) !important; border: 1px solid rgba(23,174,182,0.25) !important; border-radius: 10px !important; padding: 6px 12px !important; color: #f2f6ff !important; font-weight: 600 !important; font-family: 'Tajawal', sans-serif !important; font-size: 14px !important; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none; min-width: 86px; background-image: linear-gradient(45deg, transparent 50%, #17aeb6 50%), linear-gradient(135deg, #17aeb6 50%, transparent 50%) !important; background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50% !important; background-size: 5px 5px, 5px 5px !important; background-repeat: no-repeat !important; padding-left: 28px !important; }
-        .flatpickr-current-month .flatpickr-yearDropdown-years:hover { background-color: rgba(23,174,182,0.18) !important; border-color: rgba(23,174,182,0.5) !important; }
-        .flatpickr-yearDropdown-year { background: #0a1929 !important; color: #f2f6ff !important; font-family: 'Tajawal', sans-serif !important; }
+        .flatpickr-calendar { overflow: visible !important; }
+        .flatpickr-current-month .flatpickr-yearDropdown { display: inline-block; min-width: 92px; }
+        .flatpickr-current-month .flatpickr-yearDropdown-trigger { width: 100%; background: rgba(23,174,182,0.10); border: 1px solid rgba(23,174,182,0.25); border-radius: 10px; padding: 6px 12px; color: #f2f6ff; font-weight: 600; font-family: 'Tajawal', sans-serif; font-size: 14px; cursor: pointer; outline: none; text-align: center; }
+        .flatpickr-current-month .flatpickr-yearDropdown-trigger:hover { background: rgba(23,174,182,0.18); border-color: rgba(23,174,182,0.5); }
+        .flatpickr-yearDropdown-menu { display: none; position: absolute; z-index: 30; width: 96px; max-height: 220px; overflow-y: auto; overscroll-behavior: contain; padding: 6px; background: #0a1929; border: 1px solid rgba(23,174,182,0.25); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+        .flatpickr-yearDropdown-menu.is-open { display: block; }
+        .flatpickr-yearDropdown-option { width: 100%; border: 0; border-radius: 8px; background: transparent; color: #f2f6ff; font-family: 'Tajawal', sans-serif; font-size: 14px; font-weight: 600; padding: 8px 10px; cursor: pointer; text-align: center; }
+        .flatpickr-yearDropdown-option:hover { background: rgba(23,174,182,0.14); color: #ffffff; }
+        .flatpickr-yearDropdown-option.is-selected { background: linear-gradient(135deg, #17aeb6, #0d7070); color: #ffffff; }
         .flatpickr-prev-month, .flatpickr-next-month { color: #17aeb6 !important; fill: #17aeb6 !important; height: 36px !important; width: 36px !important; padding: 8px !important; border-radius: 10px !important; transition: background 0.2s; }
         .flatpickr-prev-month:hover, .flatpickr-next-month:hover { background: rgba(23,174,182,0.12) !important; }
         .flatpickr-prev-month svg, .flatpickr-next-month svg { fill: #17aeb6 !important; width: 14px; height: 14px; }
@@ -438,9 +444,12 @@
         body.light-mode .flatpickr-current-month .flatpickr-monthDropdown-months { background-color: #eaf4f4 !important; border-color: rgba(13,112,112,0.15) !important; color: #1a2e2e !important; }
         body.light-mode .flatpickr-current-month .flatpickr-monthDropdown-months:hover { background-color: #d8ebeb !important; border-color: rgba(13,112,112,0.35) !important; }
         body.light-mode .flatpickr-monthDropdown-month { background: #ffffff !important; color: #1a2e2e !important; }
-        body.light-mode .flatpickr-current-month .flatpickr-yearDropdown-years { background-color: #eaf4f4 !important; border-color: rgba(13,112,112,0.15) !important; color: #1a2e2e !important; }
-        body.light-mode .flatpickr-current-month .flatpickr-yearDropdown-years:hover { background-color: #d8ebeb !important; border-color: rgba(13,112,112,0.35) !important; }
-        body.light-mode .flatpickr-yearDropdown-year { background: #ffffff !important; color: #1a2e2e !important; }
+        body.light-mode .flatpickr-current-month .flatpickr-yearDropdown-trigger { background: #eaf4f4; border-color: rgba(13,112,112,0.15); color: #1a2e2e; }
+        body.light-mode .flatpickr-current-month .flatpickr-yearDropdown-trigger:hover { background: #d8ebeb; border-color: rgba(13,112,112,0.35); }
+        body.light-mode .flatpickr-yearDropdown-menu { background: #ffffff; border-color: rgba(13,112,112,0.15); box-shadow: 0 16px 40px rgba(13,112,112,0.14); }
+        body.light-mode .flatpickr-yearDropdown-option { color: #1a2e2e; }
+        body.light-mode .flatpickr-yearDropdown-option:hover { background: rgba(13,112,112,0.08); color: #0d7070; }
+        body.light-mode .flatpickr-yearDropdown-option.is-selected { color: #ffffff; }
         body.light-mode .flatpickr-weekdays { border-top-color: rgba(13,112,112,0.1); }
         body.light-mode .flatpickr-weekday { color: #5a7a7a !important; }
         body.light-mode .flatpickr-day { color: #3a5555 !important; }
@@ -1838,16 +1847,43 @@ lucide.createIcons();
 
         var minYear = options.minYear;
         var maxYear = options.maxYear;
-        var select = document.createElement('select');
-        select.className = 'flatpickr-yearDropdown-years';
-        select.setAttribute('aria-label', 'اختيار السنة');
+        var dropdown = document.createElement('span');
+        var trigger = document.createElement('button');
+        var menu = document.createElement('span');
+        dropdown.className = 'flatpickr-yearDropdown';
+        trigger.type = 'button';
+        trigger.className = 'flatpickr-yearDropdown-trigger';
+        trigger.setAttribute('aria-label', 'اختيار السنة');
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.className = 'flatpickr-yearDropdown-menu';
+        dropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        function positionMenu() {
+            var triggerRect = trigger.getBoundingClientRect();
+            var calendarRect = instance.calendarContainer.getBoundingClientRect();
+            menu.style.top = (triggerRect.bottom - calendarRect.top + 6) + 'px';
+            menu.style.left = (triggerRect.left - calendarRect.left) + 'px';
+            menu.style.width = triggerRect.width + 'px';
+        }
+
+        function closeDropdown() {
+            menu.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
 
         function addYearOption(year) {
-            var option = document.createElement('option');
-            option.className = 'flatpickr-yearDropdown-year';
-            option.value = String(year);
-            option.textContent = String(year);
-            select.appendChild(option);
+            var button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'flatpickr-yearDropdown-option';
+            button.dataset.year = String(year);
+            button.textContent = String(year);
+            button.addEventListener('click', function () {
+                instance.changeYear(year);
+                closeDropdown();
+            });
+            menu.appendChild(button);
         }
 
         if (options.descending) {
@@ -1857,16 +1893,37 @@ lucide.createIcons();
         }
 
         function syncYear() {
-            select.value = String(instance.currentYear || yearInput.value);
+            var activeYear = String(instance.currentYear || yearInput.value);
+            trigger.textContent = activeYear;
+            menu.querySelectorAll('.flatpickr-yearDropdown-option').forEach(function (button) {
+                button.classList.toggle('is-selected', button.dataset.year === activeYear);
+            });
         }
 
-        select.addEventListener('change', function () {
-            instance.changeYear(parseInt(select.value, 10));
+        trigger.addEventListener('click', function (event) {
+            event.stopPropagation();
+            var willOpen = !menu.classList.contains('is-open');
+            if (willOpen) positionMenu();
+            menu.classList.toggle('is-open', willOpen);
+            trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            var selected = menu.querySelector('.is-selected');
+            if (willOpen && selected) selected.scrollIntoView({ block: 'center' });
         });
+        document.addEventListener('click', closeDropdown);
+        menu.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+        window.addEventListener('resize', function () {
+            if (menu.classList.contains('is-open')) positionMenu();
+        });
+        instance.config.onOpen = instance.config.onOpen || [];
+        instance.config.onOpen.push(positionMenu);
 
         wrapper.dataset.yearDropdownAttached = 'true';
         wrapper.style.display = 'none';
-        wrapper.parentNode.insertBefore(select, wrapper.nextSibling);
+        dropdown.appendChild(trigger);
+        wrapper.parentNode.insertBefore(dropdown, wrapper.nextSibling);
+        instance.calendarContainer.appendChild(menu);
         instance.config.onYearChange = instance.config.onYearChange || [];
         instance.config.onMonthChange = instance.config.onMonthChange || [];
         instance.config.onYearChange.push(syncYear);
